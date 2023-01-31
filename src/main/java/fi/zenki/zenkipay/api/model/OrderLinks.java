@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   OrderLinks.JSON_PROPERTY_REFUND
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:09:42.478974698Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:18:42.139375889Z[Etc/UTC]")
 public class OrderLinks {
   public static final String JSON_PROPERTY_REFUND = "refund";
   private OrderLinksRefund refund;
