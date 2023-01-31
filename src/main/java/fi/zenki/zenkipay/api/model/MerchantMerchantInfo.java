@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MerchantMerchantInfo.JSON_PROPERTY_KYC_STATUS,
   MerchantMerchantInfo.JSON_PROPERTY_INTEGRATION_STATUS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:18:42.139375889Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:39:41.344640444Z[Etc/UTC]")
 public class MerchantMerchantInfo {
   public static final String JSON_PROPERTY_COMMERCIAL_NAME = "commercialName";
   private String commercialName;

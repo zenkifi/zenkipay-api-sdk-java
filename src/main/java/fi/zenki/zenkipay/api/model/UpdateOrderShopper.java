@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   UpdateOrderShopper.JSON_PROPERTY_ID
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:18:42.139375889Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:39:41.344640444Z[Etc/UTC]")
 public class UpdateOrderShopper {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;

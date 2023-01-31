@@ -47,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Item.JSON_PROPERTY_THUMBNAIL_URL,
   Item.JSON_PROPERTY_METADATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:18:42.139375889Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:39:41.344640444Z[Etc/UTC]")
 public class Item {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
   private String externalId;

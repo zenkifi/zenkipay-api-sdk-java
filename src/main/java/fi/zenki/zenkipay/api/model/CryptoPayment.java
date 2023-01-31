@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CryptoPayment.JSON_PROPERTY_NETWORK_SCAN_URL,
   CryptoPayment.JSON_PROPERTY_TRANSACTION_STATUS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:18:42.139375889Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:39:41.344640444Z[Etc/UTC]")
 public class CryptoPayment {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private String amount;
