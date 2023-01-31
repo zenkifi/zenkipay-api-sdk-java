@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderSettlementInfoCryptoSettlement.JSON_PROPERTY_FINAL_AMOUNT,
   OrderSettlementInfoCryptoSettlement.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:39:41.344640444Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:18:32.231258754Z[Etc/UTC]")
 public class OrderSettlementInfoCryptoSettlement {
   public static final String JSON_PROPERTY_FINAL_AMOUNT = "finalAmount";
   private String finalAmount;
