@@ -53,7 +53,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CreateOrder.JSON_PROPERTY_ITEMS,
   CreateOrder.JSON_PROPERTY_METADATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:18:32.231258754Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:41:17.558143950Z[Etc/UTC]")
 public class CreateOrder {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;
