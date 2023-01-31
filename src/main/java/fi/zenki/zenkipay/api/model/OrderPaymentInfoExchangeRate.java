@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_AMOUNT,
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:41:17.558143950Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:51:29.235934145Z[Etc/UTC]")
 public class OrderPaymentInfoExchangeRate {
   public static final String JSON_PROPERTY_FROM = "from";
   private String from;

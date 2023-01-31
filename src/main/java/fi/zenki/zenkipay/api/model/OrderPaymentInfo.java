@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderPaymentInfo.JSON_PROPERTY_CRYPTO_LOVE,
   OrderPaymentInfo.JSON_PROPERTY_CRYPTO_PAYMENT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:41:17.558143950Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:51:29.235934145Z[Etc/UTC]")
 public class OrderPaymentInfo {
   public static final String JSON_PROPERTY_EXCHANGE_RATE = "exchangeRate";
   private OrderPaymentInfoExchangeRate exchangeRate;
