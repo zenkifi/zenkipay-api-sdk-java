@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_FINAL_AMOUNT,
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:54:43.111604273Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:01:36.761525480Z[Etc/UTC]")
 public class OrderPaymentInfoCryptoLove {
   public static final String JSON_PROPERTY_DISCOUNT_PERCENTAGE = "discountPercentage";
   private Double discountPercentage;

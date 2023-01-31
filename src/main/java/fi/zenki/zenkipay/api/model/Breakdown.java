@@ -49,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Breakdown.JSON_PROPERTY_ADDITIONAL_CHARGES,
   Breakdown.JSON_PROPERTY_GRAND_TOTAL_AMOUNT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T16:54:43.111604273Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:01:36.761525480Z[Etc/UTC]")
 public class Breakdown {
   public static final String JSON_PROPERTY_CURRENCY_CODE_ISO3 = "currencyCodeIso3";
   private String currencyCodeIso3;

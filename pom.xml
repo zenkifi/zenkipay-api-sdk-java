@@ -17,7 +17,7 @@
     <licenses>
         <license>
             <name>This is licensed under the Apache 2.0 License - see the LICENSE file for details.</name>
-            <url>https://github.com/zenkifi/zenkipay-api-clients-sdk</url>
+            <url>https://github.com/zenkifi/zenkipay-api-sdk-java/blob/main/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
