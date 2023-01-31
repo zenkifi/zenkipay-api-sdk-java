@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ErrorResponseValidationErrorsInner.JSON_PROPERTY_FIELD,
   ErrorResponseValidationErrorsInner.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:51:29.235934145Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:56:57.338324531Z[Etc/UTC]")
 public class ErrorResponseValidationErrorsInner {
   public static final String JSON_PROPERTY_OBJECT_NAME = "objectName";
   private String objectName;

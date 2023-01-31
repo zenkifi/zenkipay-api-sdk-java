@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Refund.JSON_PROPERTY_STATUS,
   Refund.JSON_PROPERTY_PLACED_AT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:51:29.235934145Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T22:56:57.338324531Z[Etc/UTC]")
 public class Refund {
   public static final String JSON_PROPERTY_ZENKI_REFUND_ID = "zenkiRefundId";
   private String zenkiRefundId;
