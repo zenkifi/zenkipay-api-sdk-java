@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Webhook.JSON_PROPERTY_EVENT_TYPE,
   Webhook.JSON_PROPERTY_FLAT_DATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:01:36.761525480Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-01-31T20:09:42.478974698Z[Etc/UTC]")
 public class Webhook {
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private String eventType;
