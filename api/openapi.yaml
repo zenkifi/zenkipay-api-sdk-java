@@ -14,7 +14,7 @@ info:
     online scams.
   termsOfService: https://www.zenki.fi/legal-center/
   title: Zenkipay API
-  version: 1.0.1
+  version: 1.0.0
 externalDocs:
   url: https://doc.zenki.fi/
 servers:
