@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderClaim.JSON_PROPERTY_STATUS,
   OrderClaim.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:17:55.088021122Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:26:58.566269780Z[Etc/UTC]")
 public class OrderClaim {
   public static final String JSON_PROPERTY_REASON = "reason";
   private JsonNullable<String> reason = JsonNullable.<String>undefined();
