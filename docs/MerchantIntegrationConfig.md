@@ -2,7 +2,7 @@
 
 # MerchantIntegrationConfig
 
-Merchant integrations settings
+Merchant integrations settings.
 
 ## Properties
 

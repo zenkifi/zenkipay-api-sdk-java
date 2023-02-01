@@ -38,7 +38,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:33:41.047353497Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
 public class MerchantsApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -76,7 +76,7 @@ public class MerchantsApi {
   }
 
   /**
-   * Merchant information.
+   * Merchant information
    * The current configuration of the merchnat is obtained.
    * @param contentType Content type accepted. (required)
    * @param accept Accepted formats. (required)
@@ -85,7 +85,7 @@ public class MerchantsApi {
    * @return Merchant
    * @throws ApiException if fails to make API call
    * For more details on the services, consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Merchant information. Documentation</a>
+   * @see <a href="https://developer.zenki.fi/">Merchant information Documentation</a>
    */
   public Merchant getMerchantInfo(String contentType, String accept, String X_ZENKI_PLUGIN_ID, String acceptLanguage) throws ApiException {
     ApiResponse<Merchant> localVarResponse = getMerchantInfoWithHttpInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
@@ -93,7 +93,7 @@ public class MerchantsApi {
   }
 
   /**
-   * Merchant information.
+   * Merchant information
    * The current configuration of the merchnat is obtained.
    * @param contentType Content type accepted. (required)
    * @param accept Accepted formats. (required)
@@ -102,7 +102,7 @@ public class MerchantsApi {
    * @return ApiResponse&lt;Merchant&gt;
    * @throws ApiException if fails to make API call
    * For more details on the services, consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Merchant information. Documentation</a>
+   * @see <a href="https://developer.zenki.fi/">Merchant information Documentation</a>
    */
   public ApiResponse<Merchant> getMerchantInfoWithHttpInfo(String contentType, String accept, String X_ZENKI_PLUGIN_ID, String acceptLanguage) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = getMerchantInfoRequestBuilder(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);

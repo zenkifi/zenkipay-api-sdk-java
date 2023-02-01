@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:33:41.047353497Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
 public class AuthenticationAndAuthorizationApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -77,7 +77,7 @@ public class AuthenticationAndAuthorizationApi {
   }
 
   /**
-   * Create an authentication token in Zenki.
+   * Create an authentication token in Zenki
    * This request must be sent each time it is required to generate a token to consume Zenki services.
    * @param contentType Tipo de contenido aceptado. (required)
    * @param accept Formatos aceptados. (required)
@@ -85,7 +85,7 @@ public class AuthenticationAndAuthorizationApi {
    * @return TokenOAuth2
    * @throws ApiException if fails to make API call
    * For more details on the services, you can consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki. Documentation</a>
+   * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki Documentation</a>
    */
   public TokenOAuth2 createToken(String contentType, String accept, RequestTokenOAuth2 requestTokenOAuth2) throws ApiException {
     ApiResponse<TokenOAuth2> localVarResponse = createTokenWithHttpInfo(contentType, accept, requestTokenOAuth2);
@@ -93,7 +93,7 @@ public class AuthenticationAndAuthorizationApi {
   }
 
   /**
-   * Create an authentication token in Zenki.
+   * Create an authentication token in Zenki
    * This request must be sent each time it is required to generate a token to consume Zenki services.
    * @param contentType Tipo de contenido aceptado. (required)
    * @param accept Formatos aceptados. (required)
@@ -101,7 +101,7 @@ public class AuthenticationAndAuthorizationApi {
    * @return ApiResponse&lt;TokenOAuth2&gt;
    * @throws ApiException if fails to make API call
    * For more details on the services, you can consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki. Documentation</a>
+   * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki Documentation</a>
    */
   public ApiResponse<TokenOAuth2> createTokenWithHttpInfo(String contentType, String accept, RequestTokenOAuth2 requestTokenOAuth2) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = createTokenRequestBuilder(contentType, accept, requestTokenOAuth2);

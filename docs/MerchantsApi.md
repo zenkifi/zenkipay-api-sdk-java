@@ -4,8 +4,8 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getMerchantInfo**](MerchantsApi.md#getMerchantInfo) | **GET** /v1/pay/me | Merchant information. |
-| [**getMerchantInfoWithHttpInfo**](MerchantsApi.md#getMerchantInfoWithHttpInfo) | **GET** /v1/pay/me | Merchant information. |
+| [**getMerchantInfo**](MerchantsApi.md#getMerchantInfo) | **GET** /v1/pay/me | Merchant information |
+| [**getMerchantInfoWithHttpInfo**](MerchantsApi.md#getMerchantInfoWithHttpInfo) | **GET** /v1/pay/me | Merchant information |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > Merchant getMerchantInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Merchant information.
+Merchant information
 
 The current configuration of the merchnat is obtained.
 
@@ -95,7 +95,7 @@ public class Example {
 
 > ApiResponse<Merchant> getMerchantInfo getMerchantInfoWithHttpInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Merchant information.
+Merchant information
 
 The current configuration of the merchnat is obtained.
 

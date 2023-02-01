@@ -49,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Breakdown.JSON_PROPERTY_ADDITIONAL_CHARGES,
   Breakdown.JSON_PROPERTY_GRAND_TOTAL_AMOUNT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:33:41.047353497Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
 public class Breakdown {
   public static final String JSON_PROPERTY_CURRENCY_CODE_ISO3 = "currencyCodeIso3";
   private String currencyCodeIso3;
@@ -380,7 +380,7 @@ public class Breakdown {
    * @return grandTotalAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "262.7234", required = true, value = "Sum of subtotalAmount, taxesAmount, localTaxesAmount, importCosts, and each value of additionalCharges minus discountAmount.")
+  @ApiModelProperty(example = "261.6", required = true, value = "Sum of subtotalAmount, taxesAmount, localTaxesAmount, importCosts, and each value of additionalCharges minus discountAmount.")
   @JsonProperty(JSON_PROPERTY_GRAND_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

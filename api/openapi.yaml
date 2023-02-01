@@ -83,7 +83,7 @@ paths:
                 $ref: '#/components/schemas/AuthenticationErrorResponse'
           description: "Unexpected error creating auth token, contact Zenki support\
             \ team at support@zenki.fi"
-      summary: Create an authentication token in Zenki.
+      summary: Create an authentication token in Zenki
       tags:
       - Authentication and authorization
       x-content-type: application/json
@@ -182,7 +182,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Merchant information.
+      summary: Merchant information
       tags:
       - Merchants
       x-accepts: application/json
@@ -289,7 +289,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Payment order registration.
+      summary: Payment order registration
       tags:
       - Orders
       x-content-type: application/json
@@ -396,7 +396,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Order information.
+      summary: Order information
       tags:
       - Orders
       x-accepts: application/json
@@ -617,7 +617,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Escrow update.
+      summary: Escrow update
       tags:
       - Escrow
       x-accepts: application/json
@@ -857,7 +857,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Shipping Status Update.
+      summary: Shipping Status Update
       tags:
       - Tracking
       x-content-type: application/json
@@ -971,7 +971,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Register of refunds for an order.
+      summary: Register of refunds for an order
       tags:
       - Refunds
       x-content-type: application/json
@@ -1086,7 +1086,7 @@ paths:
           description: Internal Server Error.
       security:
       - JWTAuth: []
-      summary: Request refunds for an order.
+      summary: Request refunds for an order
       tags:
       - Refunds
       x-accepts: application/json
@@ -1094,8 +1094,9 @@ paths:
     post:
       description: Service that allows different events to be sent to the merchant.
       externalDocs:
-        description: "For more details on the services, consult the documentation\
-          \ Zenkipay official."
+        description: |-
+          For more details on the services, consult the documentation Zenkipay official.
+          NOTE: You must change the entire URL displayed at the top of the service to the final URL where you will receive the webhooks that Zenkipay sends you.
         url: https://developer.zenki.fi/
       operationId: sendEvent
       parameters:
@@ -1155,7 +1156,7 @@ paths:
           description: Event received by the merchant.
         "500":
           description: Internal Server Error.
-      summary: Event notifications for merchant.
+      summary: Event notifications for merchant
       tags:
       - Webhooks
       x-content-type: application/json
@@ -1181,7 +1182,7 @@ components:
           importCosts: 0
           additionalCharges:
             donation: 1.1234
-          grandTotalAmount: 262.7234
+          grandTotalAmount: 261.6
           totalItemsAmount: 200
           discountAmount: 0
           taxesAmount: 10
@@ -1433,7 +1434,7 @@ components:
           importCosts: 0
           additionalCharges:
             donation: 1.1234
-          grandTotalAmount: 262.7234
+          grandTotalAmount: 261.6
           totalItemsAmount: 200
           discountAmount: 0
           taxesAmount: 10
@@ -1895,7 +1896,7 @@ components:
         importCosts: 0
         additionalCharges:
           donation: 1.1234
-        grandTotalAmount: 262.7234
+        grandTotalAmount: 261.6
         totalItemsAmount: 200
         discountAmount: 0
         taxesAmount: 10
@@ -1975,7 +1976,7 @@ components:
         grandTotalAmount:
           description: "Sum of subtotalAmount, taxesAmount, localTaxesAmount, importCosts,\
             \ and each value of additionalCharges minus discountAmount."
-          example: 262.7234
+          example: 261.6
           format: double
           minimum: 0
           nullable: false
@@ -2994,7 +2995,7 @@ components:
       - name
       type: object
     Merchant_integrationConfig:
-      description: Merchant integrations settings
+      description: Merchant integrations settings.
       example:
         plugins:
         - clientId: b6026f861fd41a94c3389d54293de9d04bde6f7c

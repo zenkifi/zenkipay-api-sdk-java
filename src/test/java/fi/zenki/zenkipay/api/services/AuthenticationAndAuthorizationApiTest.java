@@ -37,7 +37,7 @@ public class AuthenticationAndAuthorizationApiTest {
 
     
     /**
-     * Create an authentication token in Zenki.
+     * Create an authentication token in Zenki
      *
      * This request must be sent each time it is required to generate a token to consume Zenki services.
      *

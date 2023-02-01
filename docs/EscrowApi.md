@@ -4,8 +4,8 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**updateEscrow**](EscrowApi.md#updateEscrow) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update. |
-| [**updateEscrowWithHttpInfo**](EscrowApi.md#updateEscrowWithHttpInfo) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update. |
+| [**updateEscrow**](EscrowApi.md#updateEscrow) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update |
+| [**updateEscrowWithHttpInfo**](EscrowApi.md#updateEscrowWithHttpInfo) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > Order updateEscrow(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Escrow update.
+Escrow update
 
 Service in charge of updating the escrow for orders without tracking.
 
@@ -97,7 +97,7 @@ public class Example {
 
 > ApiResponse<Order> updateEscrow updateEscrowWithHttpInfo(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Escrow update.
+Escrow update
 
 Service in charge of updating the escrow for orders without tracking.
 

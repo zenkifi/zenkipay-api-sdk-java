@@ -5,7 +5,7 @@ Zenkipay API
 
 - API version: 1.0.0
 
-- Build date: 2023-02-01T00:33:41.047353497Z[Etc/UTC]
+- Build date: 2023-02-01T00:46:11.523986338Z[Etc/UTC]
 
 Definition of technical specification of the product; Zenkipay is a gateway
 cryptocurrency payment system that allows merchant's to receive payments on their
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>fi.zenki.zenkipay</groupId>
   <artifactId>zenkipay-api-client</artifactId>
-  <version>1.0.0-RELEASE</version>
+  <version>-RELEASE</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -60,7 +60,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "fi.zenki.zenkipay:zenkipay-api-client:1.0.0-RELEASE"
+compile "fi.zenki.zenkipay:zenkipay-api-client:-RELEASE"
 ```
 
 ### Others
@@ -73,7 +73,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/zenkipay-api-client-1.0.0-RELEASE.jar`
+- `target/zenkipay-api-client--RELEASE.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
@@ -117,28 +117,28 @@ All URIs are relative to *https://api.zenki.fi*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthenticationAndAuthorizationApi* | [**createToken**](docs/AuthenticationAndAuthorizationApi.md#createToken) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki.
-*AuthenticationAndAuthorizationApi* | [**createTokenWithHttpInfo**](docs/AuthenticationAndAuthorizationApi.md#createTokenWithHttpInfo) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki.
-*EscrowApi* | [**updateEscrow**](docs/EscrowApi.md#updateEscrow) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update.
-*EscrowApi* | [**updateEscrowWithHttpInfo**](docs/EscrowApi.md#updateEscrowWithHttpInfo) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update.
-*MerchantsApi* | [**getMerchantInfo**](docs/MerchantsApi.md#getMerchantInfo) | **GET** /v1/pay/me | Merchant information.
-*MerchantsApi* | [**getMerchantInfoWithHttpInfo**](docs/MerchantsApi.md#getMerchantInfoWithHttpInfo) | **GET** /v1/pay/me | Merchant information.
-*OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/pay/orders | Payment order registration.
-*OrdersApi* | [**createOrderWithHttpInfo**](docs/OrdersApi.md#createOrderWithHttpInfo) | **POST** /v1/pay/orders | Payment order registration.
-*OrdersApi* | [**getOrder**](docs/OrdersApi.md#getOrder) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information.
-*OrdersApi* | [**getOrderWithHttpInfo**](docs/OrdersApi.md#getOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information.
+*AuthenticationAndAuthorizationApi* | [**createToken**](docs/AuthenticationAndAuthorizationApi.md#createToken) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki
+*AuthenticationAndAuthorizationApi* | [**createTokenWithHttpInfo**](docs/AuthenticationAndAuthorizationApi.md#createTokenWithHttpInfo) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki
+*EscrowApi* | [**updateEscrow**](docs/EscrowApi.md#updateEscrow) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update
+*EscrowApi* | [**updateEscrowWithHttpInfo**](docs/EscrowApi.md#updateEscrowWithHttpInfo) | **PATCH** /v1/pay/escrow/{zenkiOrderId}/fulfillments | Escrow update
+*MerchantsApi* | [**getMerchantInfo**](docs/MerchantsApi.md#getMerchantInfo) | **GET** /v1/pay/me | Merchant information
+*MerchantsApi* | [**getMerchantInfoWithHttpInfo**](docs/MerchantsApi.md#getMerchantInfoWithHttpInfo) | **GET** /v1/pay/me | Merchant information
+*OrdersApi* | [**createOrder**](docs/OrdersApi.md#createOrder) | **POST** /v1/pay/orders | Payment order registration
+*OrdersApi* | [**createOrderWithHttpInfo**](docs/OrdersApi.md#createOrderWithHttpInfo) | **POST** /v1/pay/orders | Payment order registration
+*OrdersApi* | [**getOrder**](docs/OrdersApi.md#getOrder) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information
+*OrdersApi* | [**getOrderWithHttpInfo**](docs/OrdersApi.md#getOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information
 *OrdersApi* | [**updateOrder**](docs/OrdersApi.md#updateOrder) | **PATCH** /v1/pay/orders/{zenkiOrderId} | Order update for payment
 *OrdersApi* | [**updateOrderWithHttpInfo**](docs/OrdersApi.md#updateOrderWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId} | Order update for payment
-*RefundsApi* | [**getRefundOrder**](docs/RefundsApi.md#getRefundOrder) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order.
-*RefundsApi* | [**getRefundOrderWithHttpInfo**](docs/RefundsApi.md#getRefundOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order.
-*RefundsApi* | [**registerRefundOrder**](docs/RefundsApi.md#registerRefundOrder) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order.
-*RefundsApi* | [**registerRefundOrderWithHttpInfo**](docs/RefundsApi.md#registerRefundOrderWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order.
-*TrackingApi* | [**addEventTracking**](docs/TrackingApi.md#addEventTracking) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update.
-*TrackingApi* | [**addEventTrackingWithHttpInfo**](docs/TrackingApi.md#addEventTrackingWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update.
+*RefundsApi* | [**getRefundOrder**](docs/RefundsApi.md#getRefundOrder) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order
+*RefundsApi* | [**getRefundOrderWithHttpInfo**](docs/RefundsApi.md#getRefundOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order
+*RefundsApi* | [**registerRefundOrder**](docs/RefundsApi.md#registerRefundOrder) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order
+*RefundsApi* | [**registerRefundOrderWithHttpInfo**](docs/RefundsApi.md#registerRefundOrderWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order
+*TrackingApi* | [**addEventTracking**](docs/TrackingApi.md#addEventTracking) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update
+*TrackingApi* | [**addEventTrackingWithHttpInfo**](docs/TrackingApi.md#addEventTrackingWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update
 *TrackingApi* | [**registerTrackingOrders**](docs/TrackingApi.md#registerTrackingOrders) | **POST** /v1/pay/orders/{zenkiOrderId}/tracking | Registration number for tracking
 *TrackingApi* | [**registerTrackingOrdersWithHttpInfo**](docs/TrackingApi.md#registerTrackingOrdersWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/tracking | Registration number for tracking
-*WebhooksApi* | [**sendEvent**](docs/WebhooksApi.md#sendEvent) | **POST** /URL_MERCHANT | Event notifications for merchant.
-*WebhooksApi* | [**sendEventWithHttpInfo**](docs/WebhooksApi.md#sendEventWithHttpInfo) | **POST** /URL_MERCHANT | Event notifications for merchant.
+*WebhooksApi* | [**sendEvent**](docs/WebhooksApi.md#sendEvent) | **POST** /URL_MERCHANT | Event notifications for merchant
+*WebhooksApi* | [**sendEventWithHttpInfo**](docs/WebhooksApi.md#sendEventWithHttpInfo) | **POST** /URL_MERCHANT | Event notifications for merchant
 
 
 ## Documentation for Models

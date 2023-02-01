@@ -35,7 +35,7 @@ public class WebhooksApiTest {
 
     
     /**
-     * Event notifications for merchant.
+     * Event notifications for merchant
      *
      * Service that allows different events to be sent to the merchant.
      *

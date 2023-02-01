@@ -36,7 +36,7 @@ public class MerchantsApiTest {
 
     
     /**
-     * Merchant information.
+     * Merchant information
      *
      * The current configuration of the merchnat is obtained.
      *

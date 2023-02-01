@@ -4,8 +4,8 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addEventTracking**](TrackingApi.md#addEventTracking) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update. |
-| [**addEventTrackingWithHttpInfo**](TrackingApi.md#addEventTrackingWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update. |
+| [**addEventTracking**](TrackingApi.md#addEventTracking) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update |
+| [**addEventTrackingWithHttpInfo**](TrackingApi.md#addEventTrackingWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId}/tracking/{zenkiTrackId} | Shipping Status Update |
 | [**registerTrackingOrders**](TrackingApi.md#registerTrackingOrders) | **POST** /v1/pay/orders/{zenkiOrderId}/tracking | Registration number for tracking |
 | [**registerTrackingOrdersWithHttpInfo**](TrackingApi.md#registerTrackingOrdersWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/tracking | Registration number for tracking |
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > List<TrackingEventsInner> addEventTracking(zenkiOrderId, zenkiTrackId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTrackingEvent)
 
-Shipping Status Update.
+Shipping Status Update
 
 Based on the order id and the tracking id the delivery status is updated.
 
@@ -103,7 +103,7 @@ public class Example {
 
 > ApiResponse<List<TrackingEventsInner>> addEventTracking addEventTrackingWithHttpInfo(zenkiOrderId, zenkiTrackId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTrackingEvent)
 
-Shipping Status Update.
+Shipping Status Update
 
 Based on the order id and the tracking id the delivery status is updated.
 

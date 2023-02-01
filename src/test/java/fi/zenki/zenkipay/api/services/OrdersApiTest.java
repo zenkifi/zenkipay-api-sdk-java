@@ -38,7 +38,7 @@ public class OrdersApiTest {
 
     
     /**
-     * Payment order registration.
+     * Payment order registration
      *
      * Service that allows registering a payment order and associating it with a merchant.
      *
@@ -59,7 +59,7 @@ public class OrdersApiTest {
     }
     
     /**
-     * Order information.
+     * Order information
      *
      * Order information is obtained based on the Zenkipay order id.
      *

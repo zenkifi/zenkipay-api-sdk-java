@@ -37,7 +37,7 @@ public class RefundsApiTest {
 
     
     /**
-     * Request refunds for an order.
+     * Request refunds for an order
      *
      * The refund is consulted by the order number.
      *
@@ -59,7 +59,7 @@ public class RefundsApiTest {
     }
     
     /**
-     * Register of refunds for an order.
+     * Register of refunds for an order
      *
      * One or more refunds are recorded by the order number.
      *

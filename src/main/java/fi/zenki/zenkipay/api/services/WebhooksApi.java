@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:33:41.047353497Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
 public class WebhooksApi {
   private final HttpClient memberVarHttpClient;
   private final ObjectMapper memberVarObjectMapper;
@@ -75,7 +75,7 @@ public class WebhooksApi {
   }
 
   /**
-   * Event notifications for merchant.
+   * Event notifications for merchant
    * Service that allows different events to be sent to the merchant.
    * @param svixId Unique message identifier for the webhook message. This identifier is unique across all messages, but will be the same when the same webhook is forwarded (for example, due to a previous error). (required)
    * @param svixTimestamp Date and time when the webhook is sent to the merchant, in milliseconds and UTC format.  The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00: 00:00Z) (required)
@@ -84,14 +84,15 @@ public class WebhooksApi {
    * @param webhook A JSON structure will be sent that will have the information about the event to notify the merchant. (optional)
    * @throws ApiException if fails to make API call
    * For more details on the services, consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Event notifications for merchant. Documentation</a>
+NOTE: You must change the entire URL displayed at the top of the service to the final URL where you will receive the webhooks that Zenkipay sends you.
+   * @see <a href="https://developer.zenki.fi/">Event notifications for merchant Documentation</a>
    */
   public void sendEvent(String svixId, String svixTimestamp, String svixSignature, String contentType, Webhook webhook) throws ApiException {
     sendEventWithHttpInfo(svixId, svixTimestamp, svixSignature, contentType, webhook);
   }
 
   /**
-   * Event notifications for merchant.
+   * Event notifications for merchant
    * Service that allows different events to be sent to the merchant.
    * @param svixId Unique message identifier for the webhook message. This identifier is unique across all messages, but will be the same when the same webhook is forwarded (for example, due to a previous error). (required)
    * @param svixTimestamp Date and time when the webhook is sent to the merchant, in milliseconds and UTC format.  The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00: 00:00Z) (required)
@@ -101,7 +102,8 @@ public class WebhooksApi {
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * For more details on the services, consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Event notifications for merchant. Documentation</a>
+NOTE: You must change the entire URL displayed at the top of the service to the final URL where you will receive the webhooks that Zenkipay sends you.
+   * @see <a href="https://developer.zenki.fi/">Event notifications for merchant Documentation</a>
    */
   public ApiResponse<Void> sendEventWithHttpInfo(String svixId, String svixTimestamp, String svixSignature, String contentType, Webhook webhook) throws ApiException {
     HttpRequest.Builder localVarRequestBuilder = sendEventRequestBuilder(svixId, svixTimestamp, svixSignature, contentType, webhook);

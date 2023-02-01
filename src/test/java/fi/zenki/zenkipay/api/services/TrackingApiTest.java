@@ -39,7 +39,7 @@ public class TrackingApiTest {
 
     
     /**
-     * Shipping Status Update.
+     * Shipping Status Update
      *
      * Based on the order id and the tracking id the delivery status is updated.
      *

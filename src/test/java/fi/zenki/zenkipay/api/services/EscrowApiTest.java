@@ -36,7 +36,7 @@ public class EscrowApiTest {
 
     
     /**
-     * Escrow update.
+     * Escrow update
      *
      * Service in charge of updating the escrow for orders without tracking.
      *
