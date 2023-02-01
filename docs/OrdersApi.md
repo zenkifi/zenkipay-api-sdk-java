@@ -4,10 +4,10 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createOrder**](OrdersApi.md#createOrder) | **POST** /v1/pay/orders | Payment order registration |
-| [**createOrderWithHttpInfo**](OrdersApi.md#createOrderWithHttpInfo) | **POST** /v1/pay/orders | Payment order registration |
-| [**getOrder**](OrdersApi.md#getOrder) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information |
-| [**getOrderWithHttpInfo**](OrdersApi.md#getOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information |
+| [**createOrder**](OrdersApi.md#createOrder) | **POST** /v1/pay/orders | Payment order registration. |
+| [**createOrderWithHttpInfo**](OrdersApi.md#createOrderWithHttpInfo) | **POST** /v1/pay/orders | Payment order registration. |
+| [**getOrder**](OrdersApi.md#getOrder) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information. |
+| [**getOrderWithHttpInfo**](OrdersApi.md#getOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId} | Order information. |
 | [**updateOrder**](OrdersApi.md#updateOrder) | **PATCH** /v1/pay/orders/{zenkiOrderId} | Order update for payment |
 | [**updateOrderWithHttpInfo**](OrdersApi.md#updateOrderWithHttpInfo) | **PATCH** /v1/pay/orders/{zenkiOrderId} | Order update for payment |
 
@@ -17,7 +17,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > Order createOrder(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, createOrder)
 
-Payment order registration
+Payment order registration.
 
 Service that allows registering a payment order and associating it with a merchant.
 
@@ -101,7 +101,7 @@ public class Example {
 
 > ApiResponse<Order> createOrder createOrderWithHttpInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, createOrder)
 
-Payment order registration
+Payment order registration.
 
 Service that allows registering a payment order and associating it with a merchant.
 
@@ -189,7 +189,7 @@ ApiResponse<[**Order**](Order.md)>
 
 > Order getOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Order information
+Order information.
 
 Order information is obtained based on the Zenkipay order id.
 
@@ -273,7 +273,7 @@ public class Example {
 
 > ApiResponse<Order> getOrder getOrderWithHttpInfo(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Order information
+Order information.
 
 Order information is obtained based on the Zenkipay order id.
 

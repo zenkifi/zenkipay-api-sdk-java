@@ -4,8 +4,8 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**sendEvent**](WebhooksApi.md#sendEvent) | **POST** /URL_MERCHANT | Event notifications for merchant |
-| [**sendEventWithHttpInfo**](WebhooksApi.md#sendEventWithHttpInfo) | **POST** /URL_MERCHANT | Event notifications for merchant |
+| [**sendEvent**](WebhooksApi.md#sendEvent) | **POST** /URL_MERCHANT | Event notifications for merchant. |
+| [**sendEventWithHttpInfo**](WebhooksApi.md#sendEventWithHttpInfo) | **POST** /URL_MERCHANT | Event notifications for merchant. |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > void sendEvent(svixId, svixTimestamp, svixSignature, contentType, webhook)
 
-Event notifications for merchant
+Event notifications for merchant.
 
 Service that allows different events to be sent to the merchant.
 
@@ -86,7 +86,7 @@ No authorization required
 
 > ApiResponse<Void> sendEvent sendEventWithHttpInfo(svixId, svixTimestamp, svixSignature, contentType, webhook)
 
-Event notifications for merchant
+Event notifications for merchant.
 
 Service that allows different events to be sent to the merchant.
 

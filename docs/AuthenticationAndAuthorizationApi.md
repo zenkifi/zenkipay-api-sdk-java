@@ -4,8 +4,8 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createToken**](AuthenticationAndAuthorizationApi.md#createToken) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki |
-| [**createTokenWithHttpInfo**](AuthenticationAndAuthorizationApi.md#createTokenWithHttpInfo) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki |
+| [**createToken**](AuthenticationAndAuthorizationApi.md#createToken) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki. |
+| [**createTokenWithHttpInfo**](AuthenticationAndAuthorizationApi.md#createTokenWithHttpInfo) | **POST** /v1/oauth/tokens | Create an authentication token in Zenki. |
 
 
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > TokenOAuth2 createToken(contentType, accept, requestTokenOAuth2)
 
-Create an authentication token in Zenki
+Create an authentication token in Zenki.
 
 This request must be sent each time it is required to generate a token to consume Zenki services.
 
@@ -84,7 +84,7 @@ No authorization required
 
 > ApiResponse<TokenOAuth2> createToken createTokenWithHttpInfo(contentType, accept, requestTokenOAuth2)
 
-Create an authentication token in Zenki
+Create an authentication token in Zenki.
 
 This request must be sent each time it is required to generate a token to consume Zenki services.
 

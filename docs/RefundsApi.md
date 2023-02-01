@@ -4,10 +4,10 @@ All URIs are relative to *https://api.zenki.fi*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getRefundOrder**](RefundsApi.md#getRefundOrder) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order |
-| [**getRefundOrderWithHttpInfo**](RefundsApi.md#getRefundOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order |
-| [**registerRefundOrder**](RefundsApi.md#registerRefundOrder) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order |
-| [**registerRefundOrderWithHttpInfo**](RefundsApi.md#registerRefundOrderWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order |
+| [**getRefundOrder**](RefundsApi.md#getRefundOrder) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order. |
+| [**getRefundOrderWithHttpInfo**](RefundsApi.md#getRefundOrderWithHttpInfo) | **GET** /v1/pay/orders/{zenkiOrderId}/refunds/{zenkiRefundId} | Request refunds for an order. |
+| [**registerRefundOrder**](RefundsApi.md#registerRefundOrder) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order. |
+| [**registerRefundOrderWithHttpInfo**](RefundsApi.md#registerRefundOrderWithHttpInfo) | **POST** /v1/pay/orders/{zenkiOrderId}/refunds | Register of refunds for an order. |
 
 
 
@@ -15,7 +15,7 @@ All URIs are relative to *https://api.zenki.fi*
 
 > Refund getRefundOrder(zenkiOrderId, zenkiRefundId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Request refunds for an order
+Request refunds for an order.
 
 The refund is consulted by the order number.
 
@@ -101,7 +101,7 @@ public class Example {
 
 > ApiResponse<Refund> getRefundOrder getRefundOrderWithHttpInfo(zenkiOrderId, zenkiRefundId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage)
 
-Request refunds for an order
+Request refunds for an order.
 
 The refund is consulted by the order number.
 
@@ -191,7 +191,7 @@ ApiResponse<[**Refund**](Refund.md)>
 
 > Refund registerRefundOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, requestRefund)
 
-Register of refunds for an order
+Register of refunds for an order.
 
 One or more refunds are recorded by the order number.
 
@@ -277,7 +277,7 @@ public class Example {
 
 > ApiResponse<Refund> registerRefundOrder registerRefundOrderWithHttpInfo(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, requestRefund)
 
-Register of refunds for an order
+Register of refunds for an order.
 
 One or more refunds are recorded by the order number.
 
