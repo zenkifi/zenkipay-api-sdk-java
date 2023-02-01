@@ -67,7 +67,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Order.JSON_PROPERTY_LINKS,
   Order.JSON_PROPERTY_PAYMENT_SIGNATURE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:51:20.972501716Z[Etc/UTC]")
 public class Order {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;

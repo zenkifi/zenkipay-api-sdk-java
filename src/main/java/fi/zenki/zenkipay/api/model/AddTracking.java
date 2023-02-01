@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AddTracking.JSON_PROPERTY_TRACKING_ID,
   AddTracking.JSON_PROPERTY_COURIER_NAME
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:46:11.523986338Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-01T00:51:20.972501716Z[Etc/UTC]")
 public class AddTracking {
   /**
    * Courier type used to deliver the product or service.  Possible values: * EXTERNAL - In case of using an existing courier company, it must be indicated that the shipment will be external and the trackingId field must be informed. * INTERNAL - In case of using the merchant&#39;s own infrastructure to make the shipment, it must be indicated that the shipment will be internal and the courierName field must be informed.
