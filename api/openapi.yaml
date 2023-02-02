@@ -2262,9 +2262,9 @@ components:
             \ but not to the service or application (cannot open a required file,\
             \ missing data, etc.). These errors will force the intervention of the\
             \ user (administrator or direct user).\n* WARN   - Anything that could\
-            \ potentially cause application weirdness, but for which I am self-recovering.\
+            \ potentially cause application weirdness, but for which I am self-recovering\
             \ (Such as switching from a primary to a backup server, retrying an operation,\
-            \ losing secondary data, etc.)\n* INFO   - Informational messages highlighting\
+            \ losing secondary data, etc.).\n* INFO   - Informational messages highlighting\
             \ the app's progress and possibly some minor bug that impacts the experience\
             \ very little."
           enum:
