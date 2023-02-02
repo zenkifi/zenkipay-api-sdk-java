@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
   MerchantIntegrationConfig.JSON_PROPERTY_PLUGINS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T17:57:08.967812480Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T18:07:26.611352599Z[Etc/UTC]")
 public class MerchantIntegrationConfig {
   public static final String JSON_PROPERTY_PLUGINS = "plugins";
   private List<MerchantIntegrationConfigPluginsInner> plugins = new ArrayList<>();
