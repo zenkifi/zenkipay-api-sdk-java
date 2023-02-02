@@ -13,7 +13,7 @@
 
 package fi.zenki.zenkipay.api;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T17:36:38.616098402Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T17:57:08.967812480Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
