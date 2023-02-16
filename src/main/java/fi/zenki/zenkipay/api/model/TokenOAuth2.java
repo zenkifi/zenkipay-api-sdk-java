@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TokenOAuth2.JSON_PROPERTY_TOKEN_TYPE,
   TokenOAuth2.JSON_PROPERTY_EXPIRES_IN
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T18:07:26.611352599Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T14:33:03.876626539Z[Etc/UTC]")
 public class TokenOAuth2 {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "accessToken";
   private String accessToken;

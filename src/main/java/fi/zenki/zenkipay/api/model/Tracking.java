@@ -42,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Tracking.JSON_PROPERTY_COURIER_NAME,
   Tracking.JSON_PROPERTY_EXTERNAL_COURIER
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T18:07:26.611352599Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T14:33:03.876626539Z[Etc/UTC]")
 public class Tracking {
   public static final String JSON_PROPERTY_ZENKI_TRACKING_ID = "zenkiTrackingId";
   private String zenkiTrackingId;

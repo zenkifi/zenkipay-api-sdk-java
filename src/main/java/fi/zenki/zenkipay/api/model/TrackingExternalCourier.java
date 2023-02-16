@@ -43,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TrackingExternalCourier.JSON_PROPERTY_NAME_ZH_CN,
   TrackingExternalCourier.JSON_PROPERTY_NAME_ZH_HK
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-02T18:07:26.611352599Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-16T14:33:03.876626539Z[Etc/UTC]")
 public class TrackingExternalCourier {
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
