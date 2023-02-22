@@ -33,11 +33,16 @@ jobs:
     - name: Import GPG key
       id: import_gpg
       uses: crazy-max/ghaction-import-gpg@v5
+      with:
+        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+        gpg-passphrase: ${{ secrets.PASSPHRASE }}
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
         PASSPHRASE: ${{ secrets.PASSPHRASE }}
 
     - name: Build with Maven
+      env:
+        MAVEN_GPG_PASSPHRASE: ${{ secrets.PASSPHRASE }}
       run:  |
         echo "Agregando variables de entorno"
         exportGPG_TTY=$(tty)
