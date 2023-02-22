@@ -49,4 +49,3 @@ jobs:
         MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
         echo "Generando librerías y publicando en maven central"
         mvn -B package deploy --no-transfer-progress --file pom.xml -X -DcreateChecksum=true
-
