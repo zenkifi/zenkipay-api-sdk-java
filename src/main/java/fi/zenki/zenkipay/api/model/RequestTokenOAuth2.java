@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RequestTokenOAuth2.JSON_PROPERTY_CLIENT_SECRET,
   RequestTokenOAuth2.JSON_PROPERTY_GRANT_TYPE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T17:06:58.972982909Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
 public class RequestTokenOAuth2 {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private String clientId;

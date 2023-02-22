@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Merchant.JSON_PROPERTY_CRYPTO_ASSETS,
   Merchant.JSON_PROPERTY_ESCROW_CONFIG
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T17:06:58.972982909Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
 public class Merchant {
   public static final String JSON_PROPERTY_MERCHANT_INFO = "merchantInfo";
   private MerchantMerchantInfo merchantInfo;

@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   UpdateOrder.JSON_PROPERTY_SHOPPER,
   UpdateOrder.JSON_PROPERTY_METADATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T17:06:58.972982909Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
 public class UpdateOrder {
   public static final String JSON_PROPERTY_ORDER_ID = "orderId";
   private JsonNullable<String> orderId = JsonNullable.<String>undefined();
