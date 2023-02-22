@@ -46,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ErrorResponse.JSON_PROPERTY_HUMAN_MESSAGE,
   ErrorResponse.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T15:58:02.126646314Z[Etc/UTC]")
+@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T17:04:21.520067229Z[Etc/UTC]")
 public class ErrorResponse {
   public static final String JSON_PROPERTY_REQUEST_ID = "requestId";
   private String requestId;
