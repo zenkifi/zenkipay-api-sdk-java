@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'fi.zenki.zenkipay'
-version = '1.0.0-SNAPSHOT'
+version = '0.0.0-SNAPSHOT'
 
 buildscript {
     repositories {

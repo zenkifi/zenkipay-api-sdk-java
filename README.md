@@ -5,7 +5,7 @@ Zenkipay API
 
 - API version: 1.0.0
 
-- Build date: 2023-02-23T23:32:36.925241933Z[Etc/UTC]
+- Build date: 2023-02-23T23:44:48.398245079Z[Etc/UTC]
 
 Definition of technical specification of the product; Zenkipay is a gateway
 cryptocurrency payment system that allows merchant's to receive payments on their
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>fi.zenki.zenkipay</groupId>
   <artifactId>zenkipay-api-client</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.0.0-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -60,7 +60,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "fi.zenki.zenkipay:zenkipay-api-client:1.0.0-SNAPSHOT"
+compile "fi.zenki.zenkipay:zenkipay-api-client:0.0.0-SNAPSHOT"
 ```
 
 ### Others
@@ -73,7 +73,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/zenkipay-api-client-1.0.0-SNAPSHOT.jar`
+- `target/zenkipay-api-client-0.0.0-SNAPSHOT.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

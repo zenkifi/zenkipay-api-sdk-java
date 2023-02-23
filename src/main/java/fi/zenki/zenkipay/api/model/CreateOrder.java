@@ -51,7 +51,7 @@ import java.util.StringJoiner;
   CreateOrder.JSON_PROPERTY_ITEMS,
   CreateOrder.JSON_PROPERTY_METADATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:44:48.398245079Z[Etc/UTC]")
 public class CreateOrder {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;

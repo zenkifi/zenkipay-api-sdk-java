@@ -2351,7 +2351,7 @@ components:
           description: The access token that will be required to send in all requests
             to the Zenki API.
           example: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItNUlsX2I0cUktdWFvaEI3d244UHY3WEM2UEktU3BNbmZCRnlJZUx6QTJNIn0.eyJleHAiOjE1OTQyMTY0OTQsImlhdCI6MTU5NDIxNjE5NCwianRpIjoiZjVmNTBjMzEtNWIwNC00OWQ2LTljYmMtM2YwMWU5OTg5ZWQxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL2FwcHNkZXZlbG9wZXJibG9nIiwic3ViIjoiNTlmODFhMzYtYTIyMC00ZmE4LTlhZWEtMzRlN2JhNjY4OTAxIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGhvdG8tYXBwLWNsaWVudC1jcmVkZW50aWFscyIsInNlc3Npb25fc3RhdGUiOiI3NTAyY2YzMS1iMjEwLTQ3NTQtYjkxOS0wN2UxZDg0OTNmYTMiLCJhY3IiOiIxIiwic2NvcGUiOiJlbWFpbCIsImNsaWVudElkIjoicGhvdG8tYXBwLWNsaWVudC1jcmVkZW50aWFscyIsImNsaWVudEhvc3QiOiIxMjcuMC4wLjEiLCJjbGllbnRBZGRyZXNzIjoiMTI3LjAuMC4xIn0.fQVsLpQJchcofA18FOSr0gtjeo01s9bMFF1ewsI-trrzzNL28QABmm_rsb4-p0iw5fGG3-bEInFe-Owxm9sZbQ_O7je_BVMDrlJEs-bAY5cLIQWVqy3P5xCsyFt-F6y89LAOCUCGI127W18zoUagLAoi5bGCIgxKled-MYRK8MQ-PcZzYCp5FkPFMv6Wd8I5m6TZJ6xK0eG79LVDPqj-s9YGfjY_n64uiT9VneYHG261SisgZ978ZMF-gkjit9CsSTQEW2cBlyeriy133s0E0ycvybLwnHYsGzRs5k8xhgqa3ZYovtZeK2SWARoNSXWQjUCBcndT9teWcZSgQxPIzw
-          maxLength: 1024
+          maxLength: 2048
           nullable: false
           type: string
         tokenType:

@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   OrderSettlementInfoCryptoSettlement.JSON_PROPERTY_CURRENCY
 })
 @JsonTypeName("Order_settlementInfo_cryptoSettlement")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:44:48.398245079Z[Etc/UTC]")
 public class OrderSettlementInfoCryptoSettlement {
   public static final String JSON_PROPERTY_FINAL_AMOUNT = "finalAmount";
   private String finalAmount;

@@ -36,7 +36,7 @@ import java.util.StringJoiner;
   OrderDispute.JSON_PROPERTY_RESOLUTION_REQUEST_AT
 })
 @JsonTypeName("Order_dispute")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:44:48.398245079Z[Etc/UTC]")
 public class OrderDispute {
   /**
    * Dispute current status.  Possible values: * OPEN     - The dispute process has started. * REFUND   - The dispute process has been closed and a partial or full refund of the full amount of the order has been made. * RESOLVED - The dispute process has been closed without making any refund movement to the buyer.

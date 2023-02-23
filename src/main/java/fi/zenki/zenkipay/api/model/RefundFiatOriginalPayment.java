@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   RefundFiatOriginalPayment.JSON_PROPERTY_CURRENCY_CODE_ISO3
 })
 @JsonTypeName("Refund_fiatOriginalPayment")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:44:48.398245079Z[Etc/UTC]")
 public class RefundFiatOriginalPayment {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private Double amount;

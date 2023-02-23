@@ -41,7 +41,7 @@ import java.util.StringJoiner;
   CryptoPayment.JSON_PROPERTY_NETWORK_SCAN_URL,
   CryptoPayment.JSON_PROPERTY_TRANSACTION_STATUS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:44:48.398245079Z[Etc/UTC]")
 public class CryptoPayment {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private String amount;
