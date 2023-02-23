@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   RequestTokenOAuth2.JSON_PROPERTY_CLIENT_SECRET,
   RequestTokenOAuth2.JSON_PROPERTY_GRANT_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
 public class RequestTokenOAuth2 {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private String clientId;

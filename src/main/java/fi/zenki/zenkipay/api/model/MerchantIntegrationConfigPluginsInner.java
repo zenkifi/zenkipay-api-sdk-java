@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   MerchantIntegrationConfigPluginsInner.JSON_PROPERTY_CLIENT_ID
 })
 @JsonTypeName("Merchant_integrationConfig_plugins_inner")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
 public class MerchantIntegrationConfigPluginsInner {
   /**
    * Active plugin name.  Posibles valores: * SCRIPT      - Integration through Zenkipay API. * WOOCOMMERCE - Integration through the WooCommerce plugin. * BIGCOMMERCE - Integration through the BigCommerce plugin. * MAGENTO     - Integration through the Magento plugin. * ECWID       - Integration through the ECWID plugin. * SHOPIFY     - Integration through the Shopify plugin. * VTEX        - Integration through the VTEX plugin. * ANGULAR     - Integration through the Angular Front-End library. * REACT       - Integration through the React Front-End library. * VUEJS       - Integration through the VUE JS Front-End library. * PRESTASHOP  - Integration through the Prestashop plugin.

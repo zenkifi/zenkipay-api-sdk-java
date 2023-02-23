@@ -5,7 +5,7 @@ Zenkipay API
 
 - API version: 1.0.0
 
-- Build date: 2023-02-23T23:11:11.907534644Z[Etc/UTC]
+- Build date: 2023-02-23T23:19:43.293151248Z[Etc/UTC]
 
 Definition of technical specification of the product; Zenkipay is a gateway
 cryptocurrency payment system that allows merchant's to receive payments on their
