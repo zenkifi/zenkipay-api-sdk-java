@@ -33,7 +33,7 @@ import java.util.StringJoiner;
   OrderLinksRefund.JSON_PROPERTY_HREF
 })
 @JsonTypeName("Order__links_refund")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
 public class OrderLinksRefund {
   public static final String JSON_PROPERTY_HREF = "href";
   private String href;

@@ -36,7 +36,7 @@ import java.util.StringJoiner;
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_CURRENCY
 })
 @JsonTypeName("Order_paymentInfo_cryptoLove")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
 public class OrderPaymentInfoCryptoLove {
   public static final String JSON_PROPERTY_DISCOUNT_PERCENTAGE = "discountPercentage";
   private Double discountPercentage;
