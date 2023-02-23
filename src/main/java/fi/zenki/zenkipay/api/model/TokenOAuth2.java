@@ -15,17 +15,16 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * TokenOAuth2
@@ -35,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TokenOAuth2.JSON_PROPERTY_TOKEN_TYPE,
   TokenOAuth2.JSON_PROPERTY_EXPIRES_IN
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class TokenOAuth2 {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "accessToken";
   private String accessToken;
@@ -46,10 +45,11 @@ public class TokenOAuth2 {
   public static final String JSON_PROPERTY_EXPIRES_IN = "expiresIn";
   private Integer expiresIn;
 
-  public TokenOAuth2() { 
+  public TokenOAuth2() {
   }
 
   public TokenOAuth2 accessToken(String accessToken) {
+    
     this.accessToken = accessToken;
     return this;
   }
@@ -59,7 +59,6 @@ public class TokenOAuth2 {
    * @return accessToken
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItNUlsX2I0cUktdWFvaEI3d244UHY3WEM2UEktU3BNbmZCRnlJZUx6QTJNIn0.eyJleHAiOjE1OTQyMTY0OTQsImlhdCI6MTU5NDIxNjE5NCwianRpIjoiZjVmNTBjMzEtNWIwNC00OWQ2LTljYmMtM2YwMWU5OTg5ZWQxIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvcmVhbG1zL2FwcHNkZXZlbG9wZXJibG9nIiwic3ViIjoiNTlmODFhMzYtYTIyMC00ZmE4LTlhZWEtMzRlN2JhNjY4OTAxIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoicGhvdG8tYXBwLWNsaWVudC1jcmVkZW50aWFscyIsInNlc3Npb25fc3RhdGUiOiI3NTAyY2YzMS1iMjEwLTQ3NTQtYjkxOS0wN2UxZDg0OTNmYTMiLCJhY3IiOiIxIiwic2NvcGUiOiJlbWFpbCIsImNsaWVudElkIjoicGhvdG8tYXBwLWNsaWVudC1jcmVkZW50aWFscyIsImNsaWVudEhvc3QiOiIxMjcuMC4wLjEiLCJjbGllbnRBZGRyZXNzIjoiMTI3LjAuMC4xIn0.fQVsLpQJchcofA18FOSr0gtjeo01s9bMFF1ewsI-trrzzNL28QABmm_rsb4-p0iw5fGG3-bEInFe-Owxm9sZbQ_O7je_BVMDrlJEs-bAY5cLIQWVqy3P5xCsyFt-F6y89LAOCUCGI127W18zoUagLAoi5bGCIgxKled-MYRK8MQ-PcZzYCp5FkPFMv6Wd8I5m6TZJ6xK0eG79LVDPqj-s9YGfjY_n64uiT9VneYHG261SisgZ978ZMF-gkjit9CsSTQEW2cBlyeriy133s0E0ycvybLwnHYsGzRs5k8xhgqa3ZYovtZeK2SWARoNSXWQjUCBcndT9teWcZSgQxPIzw", required = true, value = "The access token that will be required to send in all requests to the Zenki API.")
   @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -76,6 +75,7 @@ public class TokenOAuth2 {
 
 
   public TokenOAuth2 tokenType(String tokenType) {
+    
     this.tokenType = tokenType;
     return this;
   }
@@ -85,7 +85,6 @@ public class TokenOAuth2 {
    * @return tokenType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Bearer", required = true, value = "The access token that will be required to send as a header in all requests to the Zenki API.")
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -102,6 +101,7 @@ public class TokenOAuth2 {
 
 
   public TokenOAuth2 expiresIn(Integer expiresIn) {
+    
     this.expiresIn = expiresIn;
     return this;
   }
@@ -111,7 +111,6 @@ public class TokenOAuth2 {
    * @return expiresIn
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1800", required = true, value = "Access token expiration time in seconds.")
   @JsonProperty(JSON_PROPERTY_EXPIRES_IN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,9 +126,6 @@ public class TokenOAuth2 {
   }
 
 
-  /**
-   * Return true if this TokenOAuth2 object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,6 +165,71 @@ public class TokenOAuth2 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `accessToken` to the URL query string
+    if (getAccessToken() != null) {
+      try {
+        joiner.add(String.format("%saccessToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccessToken()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `tokenType` to the URL query string
+    if (getTokenType() != null) {
+      try {
+        joiner.add(String.format("%stokenType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTokenType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `expiresIn` to the URL query string
+    if (getExpiresIn() != null) {
+      try {
+        joiner.add(String.format("%sexpiresIn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiresIn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.Breakdown;
 import fi.zenki.zenkipay.api.model.Item;
 import fi.zenki.zenkipay.api.model.Shopper;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

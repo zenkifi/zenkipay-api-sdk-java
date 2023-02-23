@@ -15,26 +15,24 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Summary of the amount paid in crypto currency by the buyer.
  */
-@ApiModel(description = "Summary of the amount paid in crypto currency by the buyer.")
 @JsonPropertyOrder({
   CryptoPayment.JSON_PROPERTY_AMOUNT,
   CryptoPayment.JSON_PROPERTY_CURRENCY,
@@ -43,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   CryptoPayment.JSON_PROPERTY_NETWORK_SCAN_URL,
   CryptoPayment.JSON_PROPERTY_TRANSACTION_STATUS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class CryptoPayment {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   private String amount;
@@ -108,10 +106,11 @@ public class CryptoPayment {
   public static final String JSON_PROPERTY_TRANSACTION_STATUS = "transactionStatus";
   private TransactionStatusEnum transactionStatus;
 
-  public CryptoPayment() { 
+  public CryptoPayment() {
   }
 
   public CryptoPayment amount(String amount) {
+    
     this.amount = amount;
     return this;
   }
@@ -121,7 +120,6 @@ public class CryptoPayment {
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "0.038282960887513325", required = true, value = "Payment amount in cryptocurrency.")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -138,6 +136,7 @@ public class CryptoPayment {
 
 
   public CryptoPayment currency(String currency) {
+    
     this.currency = currency;
     return this;
   }
@@ -147,7 +146,6 @@ public class CryptoPayment {
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ETH", required = true, value = "Code of the cryptocurrency supported by Zenkipay, see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-criptomonedas-soportadas")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -164,6 +162,7 @@ public class CryptoPayment {
 
 
   public CryptoPayment blockchain(String blockchain) {
+    
     this.blockchain = blockchain;
     return this;
   }
@@ -173,7 +172,6 @@ public class CryptoPayment {
    * @return blockchain
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "BSC", required = true, value = "Supported blockchains list.  Posibles valroes: * Bitcoin * Ethereum * Litecoin * Bitcoin Cash * Solana * Algorand * Polygon * Arbitrum * BSC * Avalanche * Ripple * Terra * Cardano * Polkadot * Tron * Stellar * Ethereum Classic * Hedera Hashgraph * Tezos * EOSIO * Fantom Opera * ZCash * Celo * Dash * XDC Network")
   @JsonProperty(JSON_PROPERTY_BLOCKCHAIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -191,6 +189,7 @@ public class CryptoPayment {
 
   public CryptoPayment transactionHash(String transactionHash) {
     this.transactionHash = JsonNullable.<String>of(transactionHash);
+    
     return this;
   }
 
@@ -199,7 +198,6 @@ public class CryptoPayment {
    * @return transactionHash
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0xee8a3a5eb2a972785b7a56320682bbb843c29409c60dec2d25dbd3eaff91cf26", value = "Unique identifier of the transaction, provided by the blockchain.")
   @JsonIgnore
 
   public String getTransactionHash() {
@@ -225,6 +223,7 @@ public class CryptoPayment {
 
   public CryptoPayment networkScanUrl(String networkScanUrl) {
     this.networkScanUrl = JsonNullable.<String>of(networkScanUrl);
+    
     return this;
   }
 
@@ -233,7 +232,6 @@ public class CryptoPayment {
    * @return networkScanUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://etherscan.io/tx/0x3e86fd3c50dbf8e050124e28f33392ce4f4278a925d7c472b3e7ab12af0da115", value = "URL to check the status of the transaction directly on the blockchain.")
   @JsonIgnore
 
   public String getNetworkScanUrl() {
@@ -258,6 +256,7 @@ public class CryptoPayment {
 
 
   public CryptoPayment transactionStatus(TransactionStatusEnum transactionStatus) {
+    
     this.transactionStatus = transactionStatus;
     return this;
   }
@@ -267,7 +266,6 @@ public class CryptoPayment {
    * @return transactionStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "COMPLETED", value = "Payment status transaction in the blockchain network.  Possible values: * CONFIRMING                        - Pending confirmation on the blockchain. * PARTIALLY_COMPLETED               - One or more of of the transaction records have completed successfully (Only for Aggregated transactions). * COMPLETED                         - Successfully completed. * CANCELLED                         - The transaction was rejected by the Zenkipay Staff or by the 3rd party service. * REJECTED                          - La transacción fue rechazada por el servicio de terceros. * BLOCKED                           - The transaction was blocked due to a policy rule. * FAILED                            - The transaction has failed.")
   @JsonProperty(JSON_PROPERTY_TRANSACTION_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -283,9 +281,6 @@ public class CryptoPayment {
   }
 
 
-  /**
-   * Return true if this CryptoPayment object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -342,6 +337,101 @@ public class CryptoPayment {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `amount` to the URL query string
+    if (getAmount() != null) {
+      try {
+        joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `blockchain` to the URL query string
+    if (getBlockchain() != null) {
+      try {
+        joiner.add(String.format("%sblockchain%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBlockchain()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `transactionHash` to the URL query string
+    if (getTransactionHash() != null) {
+      try {
+        joiner.add(String.format("%stransactionHash%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTransactionHash()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `networkScanUrl` to the URL query string
+    if (getNetworkScanUrl() != null) {
+      try {
+        joiner.add(String.format("%snetworkScanUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNetworkScanUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `transactionStatus` to the URL query string
+    if (getTransactionStatus() != null) {
+      try {
+        joiner.add(String.format("%stransactionStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTransactionStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

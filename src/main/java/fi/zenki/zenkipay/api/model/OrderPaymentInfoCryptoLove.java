@@ -15,29 +15,28 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Summary of the discount made to the purchase for the use of crypto love.
  */
-@ApiModel(description = "Summary of the discount made to the purchase for the use of crypto love.")
 @JsonPropertyOrder({
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_DISCOUNT_PERCENTAGE,
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_DISCOUNT_AMOUNT,
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_FINAL_AMOUNT,
   OrderPaymentInfoCryptoLove.JSON_PROPERTY_CURRENCY
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order_paymentInfo_cryptoLove")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderPaymentInfoCryptoLove {
   public static final String JSON_PROPERTY_DISCOUNT_PERCENTAGE = "discountPercentage";
   private Double discountPercentage;
@@ -51,10 +50,11 @@ public class OrderPaymentInfoCryptoLove {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
 
-  public OrderPaymentInfoCryptoLove() { 
+  public OrderPaymentInfoCryptoLove() {
   }
 
   public OrderPaymentInfoCryptoLove discountPercentage(Double discountPercentage) {
+    
     this.discountPercentage = discountPercentage;
     return this;
   }
@@ -66,7 +66,6 @@ public class OrderPaymentInfoCryptoLove {
    * @return discountPercentage
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1", required = true, value = "Discount in percentage granted by the merchant to the buyer in his purchase for activating crypto love.")
   @JsonProperty(JSON_PROPERTY_DISCOUNT_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -83,6 +82,7 @@ public class OrderPaymentInfoCryptoLove {
 
 
   public OrderPaymentInfoCryptoLove discountAmount(Double discountAmount) {
+    
     this.discountAmount = discountAmount;
     return this;
   }
@@ -93,7 +93,6 @@ public class OrderPaymentInfoCryptoLove {
    * @return discountAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "0.5", required = true, value = "Discount in amount granted by the merchant to the buyer in his purchase for activating crypto love in USD.")
   @JsonProperty(JSON_PROPERTY_DISCOUNT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -110,6 +109,7 @@ public class OrderPaymentInfoCryptoLove {
 
 
   public OrderPaymentInfoCryptoLove finalAmount(Double finalAmount) {
+    
     this.finalAmount = finalAmount;
     return this;
   }
@@ -120,7 +120,6 @@ public class OrderPaymentInfoCryptoLove {
    * @return finalAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "49.5", required = true, value = "Payment amount after discount in USD.")
   @JsonProperty(JSON_PROPERTY_FINAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -137,6 +136,7 @@ public class OrderPaymentInfoCryptoLove {
 
 
   public OrderPaymentInfoCryptoLove currency(String currency) {
+    
     this.currency = currency;
     return this;
   }
@@ -146,7 +146,6 @@ public class OrderPaymentInfoCryptoLove {
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "Unique currency code of the country which is used to settle the merchant always in USD, the ISO 4217 standard definition is used with 3 characters, see: https://es.wikipedia.org/wiki/ISO_4217 o https://www.iso.org/iso-4217-currency-codes.html")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -162,9 +161,6 @@ public class OrderPaymentInfoCryptoLove {
   }
 
 
-  /**
-   * Return true if this Order_paymentInfo_cryptoLove object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -206,6 +202,81 @@ public class OrderPaymentInfoCryptoLove {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `discountPercentage` to the URL query string
+    if (getDiscountPercentage() != null) {
+      try {
+        joiner.add(String.format("%sdiscountPercentage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiscountPercentage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `discountAmount` to the URL query string
+    if (getDiscountAmount() != null) {
+      try {
+        joiner.add(String.format("%sdiscountAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiscountAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `finalAmount` to the URL query string
+    if (getFinalAmount() != null) {
+      try {
+        joiner.add(String.format("%sfinalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFinalAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

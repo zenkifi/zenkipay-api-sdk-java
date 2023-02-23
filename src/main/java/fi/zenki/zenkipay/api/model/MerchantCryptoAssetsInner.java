@@ -15,27 +15,26 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Configuration for each cryptocurrency.
  */
-@ApiModel(description = "Configuration for each cryptocurrency.")
 @JsonPropertyOrder({
   MerchantCryptoAssetsInner.JSON_PROPERTY_CURRENCY,
   MerchantCryptoAssetsInner.JSON_PROPERTY_ACTIVE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Merchant_cryptoAssets_inner")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class MerchantCryptoAssetsInner {
   public static final String JSON_PROPERTY_CURRENCY = "currency";
   private String currency;
@@ -43,10 +42,11 @@ public class MerchantCryptoAssetsInner {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 
-  public MerchantCryptoAssetsInner() { 
+  public MerchantCryptoAssetsInner() {
   }
 
   public MerchantCryptoAssetsInner currency(String currency) {
+    
     this.currency = currency;
     return this;
   }
@@ -56,7 +56,6 @@ public class MerchantCryptoAssetsInner {
    * @return currency
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "BTC", required = true, value = "Supported currency identifier, see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-criptomonedas-soportadas")
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -73,6 +72,7 @@ public class MerchantCryptoAssetsInner {
 
 
   public MerchantCryptoAssetsInner active(Boolean active) {
+    
     this.active = active;
     return this;
   }
@@ -82,7 +82,6 @@ public class MerchantCryptoAssetsInner {
    * @return active
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "true", required = true, value = "Indicates if the cryptocurrency is active or not.")
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -98,9 +97,6 @@ public class MerchantCryptoAssetsInner {
   }
 
 
-  /**
-   * Return true if this Merchant_cryptoAssets_inner object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,6 +134,61 @@ public class MerchantCryptoAssetsInner {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `active` to the URL query string
+    if (getActive() != null) {
+      try {
+        joiner.add(String.format("%sactive%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActive()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

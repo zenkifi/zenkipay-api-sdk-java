@@ -15,22 +15,20 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Summary of the exchange rate used for payment, from local currency to USD
  */
-@ApiModel(description = "Summary of the exchange rate used for payment, from local currency to USD")
 @JsonPropertyOrder({
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_FROM,
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_TO,
@@ -38,7 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_AMOUNT,
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_TIMESTAMP
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order_paymentInfo_exchangeRate")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderPaymentInfoExchangeRate {
   public static final String JSON_PROPERTY_FROM = "from";
   private String from;
@@ -55,10 +54,11 @@ public class OrderPaymentInfoExchangeRate {
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private Long timestamp;
 
-  public OrderPaymentInfoExchangeRate() { 
+  public OrderPaymentInfoExchangeRate() {
   }
 
   public OrderPaymentInfoExchangeRate from(String from) {
+    
     this.from = from;
     return this;
   }
@@ -68,7 +68,6 @@ public class OrderPaymentInfoExchangeRate {
    * @return from
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "MXN", required = true, value = "Unique currency code of the country that is reported in the order, the ISO 4217 standard definition with 3 characters is used, see:https://es.wikipedia.org/wiki/ISO_4217 or https://www.iso.org/iso-4217-currency-codes.html")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -85,6 +84,7 @@ public class OrderPaymentInfoExchangeRate {
 
 
   public OrderPaymentInfoExchangeRate to(String to) {
+    
     this.to = to;
     return this;
   }
@@ -94,7 +94,6 @@ public class OrderPaymentInfoExchangeRate {
    * @return to
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "Unique currency code of the country which is used to settle the merchant always in USD, the ISO 4217 standard definition is used with 3 characters, see: https://es.wikipedia.org/wiki/ISO_4217 or https://www.iso.org/iso-4217-currency-codes.html")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,6 +110,7 @@ public class OrderPaymentInfoExchangeRate {
 
 
   public OrderPaymentInfoExchangeRate value(Double value) {
+    
     this.value = value;
     return this;
   }
@@ -121,7 +121,6 @@ public class OrderPaymentInfoExchangeRate {
    * @return value
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "20.0", required = true, value = "Value of the exchange rate used to convert between local currency and USD.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -138,6 +137,7 @@ public class OrderPaymentInfoExchangeRate {
 
 
   public OrderPaymentInfoExchangeRate amount(Double amount) {
+    
     this.amount = amount;
     return this;
   }
@@ -148,7 +148,6 @@ public class OrderPaymentInfoExchangeRate {
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "50.0", value = "Amount paid in USD.")
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -165,6 +164,7 @@ public class OrderPaymentInfoExchangeRate {
 
 
   public OrderPaymentInfoExchangeRate timestamp(Long timestamp) {
+    
     this.timestamp = timestamp;
     return this;
   }
@@ -175,7 +175,6 @@ public class OrderPaymentInfoExchangeRate {
    * @return timestamp
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1667353629", required = true, value = "Date and time in which the purchase and sale of the cryptocurrency was made, in milliseconds and UTC format.  The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00: 00:00Z)")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -191,9 +190,6 @@ public class OrderPaymentInfoExchangeRate {
   }
 
 
-  /**
-   * Return true if this Order_paymentInfo_exchangeRate object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,6 +233,91 @@ public class OrderPaymentInfoExchangeRate {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `from` to the URL query string
+    if (getFrom() != null) {
+      try {
+        joiner.add(String.format("%sfrom%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFrom()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `to` to the URL query string
+    if (getTo() != null) {
+      try {
+        joiner.add(String.format("%sto%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTo()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `value` to the URL query string
+    if (getValue() != null) {
+      try {
+        joiner.add(String.format("%svalue%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getValue()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `amount` to the URL query string
+    if (getAmount() != null) {
+      try {
+        joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `timestamp` to the URL query string
+    if (getTimestamp() != null) {
+      try {
+        joiner.add(String.format("%stimestamp%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimestamp()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

@@ -15,17 +15,16 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * AuthenticationErrorResponse
@@ -34,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AuthenticationErrorResponse.JSON_PROPERTY_ERROR,
   AuthenticationErrorResponse.JSON_PROPERTY_ERROR_DESCRIPTION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class AuthenticationErrorResponse {
   public static final String JSON_PROPERTY_ERROR = "error";
   private String error;
@@ -42,10 +41,11 @@ public class AuthenticationErrorResponse {
   public static final String JSON_PROPERTY_ERROR_DESCRIPTION = "errorDescription";
   private String errorDescription;
 
-  public AuthenticationErrorResponse() { 
+  public AuthenticationErrorResponse() {
   }
 
   public AuthenticationErrorResponse error(String error) {
+    
     this.error = error;
     return this;
   }
@@ -55,7 +55,6 @@ public class AuthenticationErrorResponse {
    * @return error
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "unauthorized_client", required = true, value = "Error occurred name.")
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -72,6 +71,7 @@ public class AuthenticationErrorResponse {
 
 
   public AuthenticationErrorResponse errorDescription(String errorDescription) {
+    
     this.errorDescription = errorDescription;
     return this;
   }
@@ -81,7 +81,6 @@ public class AuthenticationErrorResponse {
    * @return errorDescription
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Invalid identity", required = true, value = "Description of the error occurred.")
   @JsonProperty(JSON_PROPERTY_ERROR_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -97,9 +96,6 @@ public class AuthenticationErrorResponse {
   }
 
 
-  /**
-   * Return true if this AuthenticationErrorResponse object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -137,6 +133,61 @@ public class AuthenticationErrorResponse {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `error` to the URL query string
+    if (getError() != null) {
+      try {
+        joiner.add(String.format("%serror%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getError()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `errorDescription` to the URL query string
+    if (getErrorDescription() != null) {
+      try {
+        joiner.add(String.format("%serrorDescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getErrorDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

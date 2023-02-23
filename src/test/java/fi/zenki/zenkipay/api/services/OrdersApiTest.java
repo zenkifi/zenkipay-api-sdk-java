@@ -20,13 +20,14 @@ import fi.zenki.zenkipay.api.model.Order;
 import fi.zenki.zenkipay.api.model.UpdateOrder;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for OrdersApi
@@ -36,7 +37,6 @@ public class OrdersApiTest {
 
     private final OrdersApi api = new OrdersApi();
 
-    
     /**
      * Payment order registration
      *
@@ -52,12 +52,10 @@ public class OrdersApiTest {
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
         CreateOrder createOrder = null;
-        Order response = 
-        api.createOrder(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, createOrder);
-        
+        Order response = api.createOrder(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, createOrder);
+
         // TODO: test validations
     }
-    
     /**
      * Order information
      *
@@ -73,12 +71,10 @@ public class OrdersApiTest {
         String accept = null;
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
-        Order response = 
-        api.getOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
-        
+        Order response = api.getOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
+
         // TODO: test validations
     }
-    
     /**
      * Order update for payment
      *
@@ -95,10 +91,8 @@ public class OrdersApiTest {
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
         UpdateOrder updateOrder = null;
-        Order response = 
-        api.updateOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, updateOrder);
-        
+        Order response = api.updateOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, updateOrder);
+
         // TODO: test validations
     }
-    
 }

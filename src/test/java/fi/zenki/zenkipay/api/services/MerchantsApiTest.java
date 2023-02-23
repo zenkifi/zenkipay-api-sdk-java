@@ -18,13 +18,14 @@ import fi.zenki.zenkipay.api.model.ErrorResponse;
 import fi.zenki.zenkipay.api.model.Merchant;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for MerchantsApi
@@ -34,7 +35,6 @@ public class MerchantsApiTest {
 
     private final MerchantsApi api = new MerchantsApi();
 
-    
     /**
      * Merchant information
      *
@@ -49,10 +49,8 @@ public class MerchantsApiTest {
         String accept = null;
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
-        Merchant response = 
-        api.getMerchantInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
-        
+        Merchant response = api.getMerchantInfo(contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
+
         // TODO: test validations
     }
-    
 }

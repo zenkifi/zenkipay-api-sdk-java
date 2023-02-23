@@ -15,15 +15,11 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -31,12 +27,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Summary of shopping cart amounts.
  */
-@ApiModel(description = "Summary of shopping cart amounts.")
 @JsonPropertyOrder({
   Breakdown.JSON_PROPERTY_CURRENCY_CODE_ISO3,
   Breakdown.JSON_PROPERTY_TOTAL_ITEMS_AMOUNT,
@@ -49,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Breakdown.JSON_PROPERTY_ADDITIONAL_CHARGES,
   Breakdown.JSON_PROPERTY_GRAND_TOTAL_AMOUNT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class Breakdown {
   public static final String JSON_PROPERTY_CURRENCY_CODE_ISO3 = "currencyCodeIso3";
   private String currencyCodeIso3;
@@ -81,10 +79,11 @@ public class Breakdown {
   public static final String JSON_PROPERTY_GRAND_TOTAL_AMOUNT = "grandTotalAmount";
   private Double grandTotalAmount;
 
-  public Breakdown() { 
+  public Breakdown() {
   }
 
   public Breakdown currencyCodeIso3(String currencyCodeIso3) {
+    
     this.currencyCodeIso3 = currencyCodeIso3;
     return this;
   }
@@ -94,7 +93,6 @@ public class Breakdown {
    * @return currencyCodeIso3
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "USD", required = true, value = "Unique code of the currency of the country, the definition of the ISO 4217 standard is used with 3 characters, see: https://es.wikipedia.org/wiki/ISO_4217 or https://www.iso.org/iso-4217-currency-codes.html.")
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE_ISO3)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -111,6 +109,7 @@ public class Breakdown {
 
 
   public Breakdown totalItemsAmount(Double totalItemsAmount) {
+    
     this.totalItemsAmount = totalItemsAmount;
     return this;
   }
@@ -121,7 +120,6 @@ public class Breakdown {
    * @return totalItemsAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "200", required = true, value = "Sum of the total cost of the items (quantity * unitPrice).")
   @JsonProperty(JSON_PROPERTY_TOTAL_ITEMS_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -138,6 +136,7 @@ public class Breakdown {
 
 
   public Breakdown shipmentAmount(Double shipmentAmount) {
+    
     this.shipmentAmount = shipmentAmount;
     return this;
   }
@@ -148,7 +147,6 @@ public class Breakdown {
    * @return shipmentAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "50", required = true, value = "Shipping cost, in case of not applying its value must be 0.")
   @JsonProperty(JSON_PROPERTY_SHIPMENT_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -165,6 +163,7 @@ public class Breakdown {
 
 
   public Breakdown subtotalAmount(Double subtotalAmount) {
+    
     this.subtotalAmount = subtotalAmount;
     return this;
   }
@@ -175,7 +174,6 @@ public class Breakdown {
    * @return subtotalAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "250", required = true, value = "Sum of total_items_amount plus shipment_amount.")
   @JsonProperty(JSON_PROPERTY_SUBTOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -192,6 +190,7 @@ public class Breakdown {
 
 
   public Breakdown taxesAmount(Double taxesAmount) {
+    
     this.taxesAmount = taxesAmount;
     return this;
   }
@@ -202,7 +201,6 @@ public class Breakdown {
    * @return taxesAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "10", required = true, value = "Taxes, if not applied, its value must be 0.")
   @JsonProperty(JSON_PROPERTY_TAXES_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -220,6 +218,7 @@ public class Breakdown {
 
   public Breakdown localTaxesAmount(Double localTaxesAmount) {
     this.localTaxesAmount = JsonNullable.<Double>of(localTaxesAmount);
+    
     return this;
   }
 
@@ -229,7 +228,6 @@ public class Breakdown {
    * @return localTaxesAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.6", value = "Local taxes, if not applied, its value must be 0.")
   @JsonIgnore
 
   public Double getLocalTaxesAmount() {
@@ -255,6 +253,7 @@ public class Breakdown {
 
   public Breakdown importCosts(Double importCosts) {
     this.importCosts = JsonNullable.<Double>of(importCosts);
+    
     return this;
   }
 
@@ -264,7 +263,6 @@ public class Breakdown {
    * @return importCosts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0", value = "Import costs, if not applied, its value must be 0.")
   @JsonIgnore
 
   public Double getImportCosts() {
@@ -290,6 +288,7 @@ public class Breakdown {
 
   public Breakdown discountAmount(Double discountAmount) {
     this.discountAmount = JsonNullable.<Double>of(discountAmount);
+    
     return this;
   }
 
@@ -299,7 +298,6 @@ public class Breakdown {
    * @return discountAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "0", value = "Discount of your merchant, in case of not applying its value must be 0.")
   @JsonIgnore
 
   public Double getDiscountAmount() {
@@ -325,12 +323,13 @@ public class Breakdown {
 
   public Breakdown additionalCharges(Map<String, String> additionalCharges) {
     this.additionalCharges = JsonNullable.<Map<String, String>>of(additionalCharges);
+    
     return this;
   }
 
   public Breakdown putAdditionalChargesItem(String key, String additionalChargesItem) {
     if (this.additionalCharges == null || !this.additionalCharges.isPresent()) {
-      this.additionalCharges = JsonNullable.<Map<String, String>>of(new HashMap<>());
+      this.additionalCharges = JsonNullable.<Map<String, String>>of(null);
     }
     try {
       this.additionalCharges.get().put(key, additionalChargesItem);
@@ -345,7 +344,6 @@ public class Breakdown {
    * @return additionalCharges
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"donation\":1.1234}", value = "Additional charges, consists of a key/value object that comprises the description of the charge/amount respectively.")
   @JsonIgnore
 
   public Map<String, String> getAdditionalCharges() {
@@ -370,6 +368,7 @@ public class Breakdown {
 
 
   public Breakdown grandTotalAmount(Double grandTotalAmount) {
+    
     this.grandTotalAmount = grandTotalAmount;
     return this;
   }
@@ -380,7 +379,6 @@ public class Breakdown {
    * @return grandTotalAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "261.6", required = true, value = "Sum of subtotalAmount, taxesAmount, localTaxesAmount, importCosts, and each value of additionalCharges minus discountAmount.")
   @JsonProperty(JSON_PROPERTY_GRAND_TOTAL_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -396,9 +394,6 @@ public class Breakdown {
   }
 
 
-  /**
-   * Return true if this Breakdown object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -463,6 +458,145 @@ public class Breakdown {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `currencyCodeIso3` to the URL query string
+    if (getCurrencyCodeIso3() != null) {
+      try {
+        joiner.add(String.format("%scurrencyCodeIso3%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrencyCodeIso3()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `totalItemsAmount` to the URL query string
+    if (getTotalItemsAmount() != null) {
+      try {
+        joiner.add(String.format("%stotalItemsAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotalItemsAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `shipmentAmount` to the URL query string
+    if (getShipmentAmount() != null) {
+      try {
+        joiner.add(String.format("%sshipmentAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShipmentAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `subtotalAmount` to the URL query string
+    if (getSubtotalAmount() != null) {
+      try {
+        joiner.add(String.format("%ssubtotalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSubtotalAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `taxesAmount` to the URL query string
+    if (getTaxesAmount() != null) {
+      try {
+        joiner.add(String.format("%staxesAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTaxesAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `localTaxes_amount` to the URL query string
+    if (getLocalTaxesAmount() != null) {
+      try {
+        joiner.add(String.format("%slocalTaxes_amount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLocalTaxesAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `importCosts` to the URL query string
+    if (getImportCosts() != null) {
+      try {
+        joiner.add(String.format("%simportCosts%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getImportCosts()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `discountAmount` to the URL query string
+    if (getDiscountAmount() != null) {
+      try {
+        joiner.add(String.format("%sdiscountAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiscountAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `additionalCharges` to the URL query string
+    if (getAdditionalCharges() != null) {
+      for (String _key : getAdditionalCharges().keySet()) {
+        try {
+          joiner.add(String.format("%sadditionalCharges%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getAdditionalCharges().get(_key), URLEncoder.encode(String.valueOf(getAdditionalCharges().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `grandTotalAmount` to the URL query string
+    if (getGrandTotalAmount() != null) {
+      try {
+        joiner.add(String.format("%sgrandTotalAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGrandTotalAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

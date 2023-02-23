@@ -15,17 +15,16 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * AddTrackingEvent
@@ -35,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AddTrackingEvent.JSON_PROPERTY_LOCATION,
   AddTrackingEvent.JSON_PROPERTY_DESCRIPTION
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class AddTrackingEvent {
   /**
    * Delivery process states.  Possible values: * TRANSIT              - In delivery process. * DELIVERY             - The product or service has been delivered. * AVAILABLE_FOR_PICKUP - The product or service is ready for the buyer to pick it up at the store. * CANCELED             - The shipment has been cancelled. * FAILED               - There was a problem trying to deliver the product or service.
@@ -87,10 +86,11 @@ public class AddTrackingEvent {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
-  public AddTrackingEvent() { 
+  public AddTrackingEvent() {
   }
 
   public AddTrackingEvent status(StatusEnum status) {
+    
     this.status = status;
     return this;
   }
@@ -100,7 +100,6 @@ public class AddTrackingEvent {
    * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "FAILED", required = true, value = "Delivery process states.  Possible values: * TRANSIT              - In delivery process. * DELIVERY             - The product or service has been delivered. * AVAILABLE_FOR_PICKUP - The product or service is ready for the buyer to pick it up at the store. * CANCELED             - The shipment has been cancelled. * FAILED               - There was a problem trying to deliver the product or service.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -117,6 +116,7 @@ public class AddTrackingEvent {
 
 
   public AddTrackingEvent location(String location) {
+    
     this.location = location;
     return this;
   }
@@ -126,7 +126,6 @@ public class AddTrackingEvent {
    * @return location
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Sopitas street, no 304, San Jeronimo neighborhood", required = true, value = "Place where the event is triggered and the packet is located.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -143,6 +142,7 @@ public class AddTrackingEvent {
 
 
   public AddTrackingEvent description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -152,7 +152,6 @@ public class AddTrackingEvent {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Invalid address.", required = true, value = "Detail of the error for which the shipment could not be completed or if the product or service was delivered correctly, indicate who received it.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -168,9 +167,6 @@ public class AddTrackingEvent {
   }
 
 
-  /**
-   * Return true if this AddTrackingEvent object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -210,6 +206,71 @@ public class AddTrackingEvent {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `location` to the URL query string
+    if (getLocation() != null) {
+      try {
+        joiner.add(String.format("%slocation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLocation()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

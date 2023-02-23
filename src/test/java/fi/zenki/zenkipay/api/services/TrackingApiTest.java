@@ -21,13 +21,14 @@ import fi.zenki.zenkipay.api.model.Tracking;
 import fi.zenki.zenkipay.api.model.TrackingEventsInner;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for TrackingApi
@@ -37,7 +38,6 @@ public class TrackingApiTest {
 
     private final TrackingApi api = new TrackingApi();
 
-    
     /**
      * Shipping Status Update
      *
@@ -55,12 +55,10 @@ public class TrackingApiTest {
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
         AddTrackingEvent addTrackingEvent = null;
-        List<TrackingEventsInner> response = 
-        api.addEventTracking(zenkiOrderId, zenkiTrackId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTrackingEvent);
-        
+        List<TrackingEventsInner> response = api.addEventTracking(zenkiOrderId, zenkiTrackId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTrackingEvent);
+
         // TODO: test validations
     }
-    
     /**
      * Registration number for tracking
      *
@@ -77,10 +75,8 @@ public class TrackingApiTest {
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
         AddTracking addTracking = null;
-        Tracking response = 
-        api.registerTrackingOrders(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTracking);
-        
+        Tracking response = api.registerTrackingOrders(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, addTracking);
+
         // TODO: test validations
     }
-    
 }

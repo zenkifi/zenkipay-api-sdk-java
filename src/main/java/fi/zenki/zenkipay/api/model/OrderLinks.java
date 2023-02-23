@@ -15,35 +15,35 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.OrderLinksRefund;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * List of resources related to the order. The standards used to operate under the HATEOAS model are: https://stateless.group/hal_specification.html, https://datatracker.ietf.org/doc/html/draft-kelly-json-hal and https://www.rfc-editor.org/rfc/rfc8288  The currently supported resources to return within the _link property are: * refund - Returns the refund URI if it exists for the order.
  */
-@ApiModel(description = "List of resources related to the order. The standards used to operate under the HATEOAS model are: https://stateless.group/hal_specification.html, https://datatracker.ietf.org/doc/html/draft-kelly-json-hal and https://www.rfc-editor.org/rfc/rfc8288  The currently supported resources to return within the _link property are: * refund - Returns the refund URI if it exists for the order.")
 @JsonPropertyOrder({
   OrderLinks.JSON_PROPERTY_REFUND
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order__links")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderLinks {
   public static final String JSON_PROPERTY_REFUND = "refund";
   private OrderLinksRefund refund;
 
-  public OrderLinks() { 
+  public OrderLinks() {
   }
 
   public OrderLinks refund(OrderLinksRefund refund) {
+    
     this.refund = refund;
     return this;
   }
@@ -53,7 +53,6 @@ public class OrderLinks {
    * @return refund
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -69,9 +68,6 @@ public class OrderLinks {
   }
 
 
-  /**
-   * Return true if this Order__links object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,6 +103,46 @@ public class OrderLinks {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `refund` to the URL query string
+    if (getRefund() != null) {
+      joiner.add(getRefund().toUrlQueryString(prefix + "refund" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

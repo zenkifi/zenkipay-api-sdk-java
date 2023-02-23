@@ -15,27 +15,26 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Configuration of an active plugin.
  */
-@ApiModel(description = "Configuration of an active plugin.")
 @JsonPropertyOrder({
   MerchantIntegrationConfigPluginsInner.JSON_PROPERTY_NAME,
   MerchantIntegrationConfigPluginsInner.JSON_PROPERTY_CLIENT_ID
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Merchant_integrationConfig_plugins_inner")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class MerchantIntegrationConfigPluginsInner {
   /**
    * Active plugin name.  Posibles valores: * SCRIPT      - Integration through Zenkipay API. * WOOCOMMERCE - Integration through the WooCommerce plugin. * BIGCOMMERCE - Integration through the BigCommerce plugin. * MAGENTO     - Integration through the Magento plugin. * ECWID       - Integration through the ECWID plugin. * SHOPIFY     - Integration through the Shopify plugin. * VTEX        - Integration through the VTEX plugin. * ANGULAR     - Integration through the Angular Front-End library. * REACT       - Integration through the React Front-End library. * VUEJS       - Integration through the VUE JS Front-End library. * PRESTASHOP  - Integration through the Prestashop plugin.
@@ -96,10 +95,11 @@ public class MerchantIntegrationConfigPluginsInner {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private String clientId;
 
-  public MerchantIntegrationConfigPluginsInner() { 
+  public MerchantIntegrationConfigPluginsInner() {
   }
 
   public MerchantIntegrationConfigPluginsInner name(NameEnum name) {
+    
     this.name = name;
     return this;
   }
@@ -109,7 +109,6 @@ public class MerchantIntegrationConfigPluginsInner {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "SCRIPT", required = true, value = "Active plugin name.  Posibles valores: * SCRIPT      - Integration through Zenkipay API. * WOOCOMMERCE - Integration through the WooCommerce plugin. * BIGCOMMERCE - Integration through the BigCommerce plugin. * MAGENTO     - Integration through the Magento plugin. * ECWID       - Integration through the ECWID plugin. * SHOPIFY     - Integration through the Shopify plugin. * VTEX        - Integration through the VTEX plugin. * ANGULAR     - Integration through the Angular Front-End library. * REACT       - Integration through the React Front-End library. * VUEJS       - Integration through the VUE JS Front-End library. * PRESTASHOP  - Integration through the Prestashop plugin.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -126,6 +125,7 @@ public class MerchantIntegrationConfigPluginsInner {
 
 
   public MerchantIntegrationConfigPluginsInner clientId(String clientId) {
+    
     this.clientId = clientId;
     return this;
   }
@@ -135,7 +135,6 @@ public class MerchantIntegrationConfigPluginsInner {
    * @return clientId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "b6026f861fd41a94c3389d54293de9d04bde6f7c", required = true, value = "Active plugin key.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -151,9 +150,6 @@ public class MerchantIntegrationConfigPluginsInner {
   }
 
 
-  /**
-   * Return true if this Merchant_integrationConfig_plugins_inner object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -191,6 +187,61 @@ public class MerchantIntegrationConfigPluginsInner {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `clientId` to the URL query string
+    if (getClientId() != null) {
+      try {
+        joiner.add(String.format("%sclientId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClientId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

@@ -21,8 +21,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.CryptoPayment;
 import fi.zenki.zenkipay.api.model.OrderPaymentInfoCryptoLove;
 import fi.zenki.zenkipay.api.model.OrderPaymentInfoExchangeRate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;

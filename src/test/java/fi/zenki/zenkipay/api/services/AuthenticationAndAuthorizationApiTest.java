@@ -19,13 +19,14 @@ import fi.zenki.zenkipay.api.model.RequestTokenOAuth2;
 import fi.zenki.zenkipay.api.model.TokenOAuth2;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for AuthenticationAndAuthorizationApi
@@ -35,7 +36,6 @@ public class AuthenticationAndAuthorizationApiTest {
 
     private final AuthenticationAndAuthorizationApi api = new AuthenticationAndAuthorizationApi();
 
-    
     /**
      * Create an authentication token in Zenki
      *
@@ -49,10 +49,8 @@ public class AuthenticationAndAuthorizationApiTest {
         String contentType = null;
         String accept = null;
         RequestTokenOAuth2 requestTokenOAuth2 = null;
-        TokenOAuth2 response = 
-        api.createToken(contentType, accept, requestTokenOAuth2);
-        
+        TokenOAuth2 response = api.createToken(contentType, accept, requestTokenOAuth2);
+
         // TODO: test validations
     }
-    
 }

@@ -15,17 +15,16 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * RequestTokenOAuth2
@@ -35,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   RequestTokenOAuth2.JSON_PROPERTY_CLIENT_SECRET,
   RequestTokenOAuth2.JSON_PROPERTY_GRANT_TYPE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class RequestTokenOAuth2 {
   public static final String JSON_PROPERTY_CLIENT_ID = "clientId";
   private String clientId;
@@ -46,10 +45,11 @@ public class RequestTokenOAuth2 {
   public static final String JSON_PROPERTY_GRANT_TYPE = "grantType";
   private String grantType;
 
-  public RequestTokenOAuth2() { 
+  public RequestTokenOAuth2() {
   }
 
   public RequestTokenOAuth2 clientId(String clientId) {
+    
     this.clientId = clientId;
     return this;
   }
@@ -59,7 +59,6 @@ public class RequestTokenOAuth2 {
    * @return clientId
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "4188918f7da1547d13e3", required = true, value = "Client ID Key must be obtained from the Zenkipay portal in the security section.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -76,6 +75,7 @@ public class RequestTokenOAuth2 {
 
 
   public RequestTokenOAuth2 clientSecret(String clientSecret) {
+    
     this.clientSecret = clientSecret;
     return this;
   }
@@ -85,7 +85,6 @@ public class RequestTokenOAuth2 {
    * @return clientSecret
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "4ed3872fccacc77ce842", required = true, value = "Client Secret Key in Zenkipay must be obtained from the Zenkipay portal in the security section.")
   @JsonProperty(JSON_PROPERTY_CLIENT_SECRET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -102,6 +101,7 @@ public class RequestTokenOAuth2 {
 
 
   public RequestTokenOAuth2 grantType(String grantType) {
+    
     this.grantType = grantType;
     return this;
   }
@@ -111,7 +111,6 @@ public class RequestTokenOAuth2 {
    * @return grantType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "client_credentials", required = true, value = "Permission type, for all operations carried out in the Zenkipay API from the merchant's server, it is required to send the value 'client_credentials' as grant type.")
   @JsonProperty(JSON_PROPERTY_GRANT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,9 +126,6 @@ public class RequestTokenOAuth2 {
   }
 
 
-  /**
-   * Return true if this RequestTokenOAuth2 object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,6 +165,71 @@ public class RequestTokenOAuth2 {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `clientId` to the URL query string
+    if (getClientId() != null) {
+      try {
+        joiner.add(String.format("%sclientId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClientId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `clientSecret` to the URL query string
+    if (getClientSecret() != null) {
+      try {
+        joiner.add(String.format("%sclientSecret%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getClientSecret()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `grantType` to the URL query string
+    if (getGrantType() != null) {
+      try {
+        joiner.add(String.format("%sgrantType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGrantType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

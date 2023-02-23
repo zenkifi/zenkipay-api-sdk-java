@@ -15,27 +15,25 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Base structure of the notification that the merchant will receive, this notification will handle different types of events for its processing. The content of the message will be in string format so that it can be interpreted according to the type of event received by the merchant from Zenkipay.
  */
-@ApiModel(description = "Base structure of the notification that the merchant will receive, this notification will handle different types of events for its processing. The content of the message will be in string format so that it can be interpreted according to the type of event received by the merchant from Zenkipay.")
 @JsonPropertyOrder({
   Webhook.JSON_PROPERTY_EVENT_TYPE,
   Webhook.JSON_PROPERTY_FLAT_DATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class Webhook {
   public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
   private String eventType;
@@ -43,10 +41,11 @@ public class Webhook {
   public static final String JSON_PROPERTY_FLAT_DATA = "flatData";
   private String flatData;
 
-  public Webhook() { 
+  public Webhook() {
   }
 
   public Webhook eventType(String eventType) {
+    
     this.eventType = eventType;
     return this;
   }
@@ -56,7 +55,6 @@ public class Webhook {
    * @return eventType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "order.pay", required = true, value = "Set of events that the merchant can receive.  Possible values: * order.pay    - Event notification when an order has been successfully paid by the buyer.")
   @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -73,6 +71,7 @@ public class Webhook {
 
 
   public Webhook flatData(String flatData) {
+    
     this.flatData = flatData;
     return this;
   }
@@ -82,7 +81,6 @@ public class Webhook {
    * @return flatData
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "{\"version\":\"v1.1.0\",\"zenkiOrderId\":\"f325da2b8e3f476caa07e039406e72f0\",\"orderId\":\"f3359498592b\",\"cartId\":\"96a17044f0e3\",\"type\":\"MIXED\",\"countryCodeIso2\":\"MX\",\"status\":\"PENDING\",\"createdAt\":1667353629,\"shopper\":{\"id\":\"f3359498592b\",\"name\":\"Juanito\",\"phone\":\"442536789\",\"email\":\"juanito@gmail.com\"},\"breakdown\":{\"currencyCodeIso3\":\"USD\",\"totalItemsAmount\":200,\"shipmentAmount\":50,\"subtotalAmount\":250,\"taxesAmount\":10,\"localTaxesAmount\":1.6,\"importCosts\":0,\"discountAmount\":0,\"additionalCharges\":{\"donation\":1.1234},\"grandTotalAmount\":262.7234},\"paymentInfo\":{\"exchangeRate\":{\"from\":\"MXN\",\"to\":\"USD\",\"value\":20,\"amount\":50,\"timestamp\":1667353629},\"cryptoLove\":{\"discountPercentage\":1,\"discountAmount\":0.5,\"finalAmount\":49.5,\"currency\":\"USD\"},\"cryptoPayment\":{\"amount\":\"0.038282960887513325\",\"currency\":\"ETH\",\"blockchain\":\"BSC\",\"transactionHash\":\"0xee8a3a5eb2a972785b7a56320682bbb843c29409c60dec2d25dbd3eaff91cf26\",\"networkScanUrl\":\"https://etherscan.io/tx/0x3e86fd3c50dbf8e050124e28f33392ce4f4278a925d7c472b3e7ab12af0da115\"}},\"settlementInfo\":{\"cryptoSettlement\":{\"finalAmount\":\"49.4\",\"currency\":\"USDC\"}},\"items\":[{\"externalId\":\"e40dbc7450f6\",\"quantity\":2,\"price\":10.33,\"name\":\"Libreta\",\"description\":\"Libretaderayas\",\"type\":\"WITH_CARRIER\",\"thumbnailUrl\":\"https://cdn.tshirts.boutique/wp-content/uploads/2022/07/12213723/12100-105.jpg\",\"metadata\":{\"size\":\"L\",\"color\":\"red\"}}],\"metadata\":{\"trackingId\":\"5514a95b0882\"},\"dispute\":{\"status\":\"OPEN\",\"createdAt\":1667353629,\"resolutionRequestType\":\"REQUEST_CONCILIATED\",\"resolutionRequestAt\":1667353629},\"claim\":{\"reason\":\"Seacaboelinventario\",\"status\":\"OPEN\",\"createdAt\":1667353629},\"_links\":{\"refund\":{\"href\":\"https://api.zenki.fi/v1/pay/orders/f325da2b8e3f476caa07e039406e72f0/refunds/e40dbc7450f6\"}}}", required = true, value = "Event data.  Possible values: * The Order object is to be received when the order.pay event is notified.")
   @JsonProperty(JSON_PROPERTY_FLAT_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -98,9 +96,6 @@ public class Webhook {
   }
 
 
-  /**
-   * Return true if this Webhook object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -138,6 +133,61 @@ public class Webhook {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `eventType` to the URL query string
+    if (getEventType() != null) {
+      try {
+        joiner.add(String.format("%seventType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEventType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `flatData` to the URL query string
+    if (getFlatData() != null) {
+      try {
+        joiner.add(String.format("%sflatData%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFlatData()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

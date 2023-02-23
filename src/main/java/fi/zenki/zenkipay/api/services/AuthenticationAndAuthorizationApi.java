@@ -12,68 +12,43 @@
 
 package fi.zenki.zenkipay.api.services;
 
-import fi.zenki.zenkipay.api.ApiClient;
+import com.fasterxml.jackson.core.type.TypeReference;
+
 import fi.zenki.zenkipay.api.ApiException;
-import fi.zenki.zenkipay.api.ApiResponse;
+import fi.zenki.zenkipay.api.ApiClient;
+import fi.zenki.zenkipay.api.Configuration;
+import fi.zenki.zenkipay.api.model.*;
 import fi.zenki.zenkipay.api.Pair;
 
 import fi.zenki.zenkipay.api.model.AuthenticationErrorResponse;
 import fi.zenki.zenkipay.api.model.RequestTokenOAuth2;
 import fi.zenki.zenkipay.api.model.TokenOAuth2;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.time.Duration;
 
 import java.util.ArrayList;
-import java.util.StringJoiner;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.function.Consumer;
+import java.util.StringJoiner;
 
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class AuthenticationAndAuthorizationApi {
-  private final HttpClient memberVarHttpClient;
-  private final ObjectMapper memberVarObjectMapper;
-  private final String memberVarBaseUri;
-  private final Consumer<HttpRequest.Builder> memberVarInterceptor;
-  private final Duration memberVarReadTimeout;
-  private final Consumer<HttpResponse<InputStream>> memberVarResponseInterceptor;
-  private final Consumer<HttpResponse<String>> memberVarAsyncResponseInterceptor;
+  private ApiClient apiClient;
 
   public AuthenticationAndAuthorizationApi() {
-    this(new ApiClient());
+    this(Configuration.getDefaultApiClient());
   }
 
   public AuthenticationAndAuthorizationApi(ApiClient apiClient) {
-    memberVarHttpClient = apiClient.getHttpClient();
-    memberVarObjectMapper = apiClient.getObjectMapper();
-    memberVarBaseUri = apiClient.getBaseUri();
-    memberVarInterceptor = apiClient.getRequestInterceptor();
-    memberVarReadTimeout = apiClient.getReadTimeout();
-    memberVarResponseInterceptor = apiClient.getResponseInterceptor();
-    memberVarAsyncResponseInterceptor = apiClient.getAsyncResponseInterceptor();
+    this.apiClient = apiClient;
   }
 
-  protected ApiException getApiException(String operationId, HttpResponse<InputStream> response) throws IOException {
-    String body = response.body() == null ? null : new String(response.body().readAllBytes());
-    String message = formatExceptionMessage(operationId, response.statusCode(), body);
-    return new ApiException(response.statusCode(), message, response.headers(), body);
+  public ApiClient getApiClient() {
+    return apiClient;
   }
 
-  private String formatExceptionMessage(String operationId, int statusCode, String body) {
-    if (body == null || body.isEmpty()) {
-      body = "[no body]";
-    }
-    return operationId + " call failed with: " + statusCode + " - " + body;
+  public void setApiClient(ApiClient apiClient) {
+    this.apiClient = apiClient;
   }
 
   /**
@@ -88,88 +63,63 @@ public class AuthenticationAndAuthorizationApi {
    * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki Documentation</a>
    */
   public TokenOAuth2 createToken(String contentType, String accept, RequestTokenOAuth2 requestTokenOAuth2) throws ApiException {
-    ApiResponse<TokenOAuth2> localVarResponse = createTokenWithHttpInfo(contentType, accept, requestTokenOAuth2);
-    return localVarResponse.getData();
-  }
-
-  /**
-   * Create an authentication token in Zenki
-   * This request must be sent each time it is required to generate a token to consume Zenki services.
-   * @param contentType Tipo de contenido aceptado. (required)
-   * @param accept Formatos aceptados. (required)
-   * @param requestTokenOAuth2 Parameters for OAuth 2 token creation. (optional)
-   * @return ApiResponse&lt;TokenOAuth2&gt;
-   * @throws ApiException if fails to make API call
-   * For more details on the services, you can consult the documentation Zenkipay official.
-   * @see <a href="https://developer.zenki.fi/">Create an authentication token in Zenki Documentation</a>
-   */
-  public ApiResponse<TokenOAuth2> createTokenWithHttpInfo(String contentType, String accept, RequestTokenOAuth2 requestTokenOAuth2) throws ApiException {
-    HttpRequest.Builder localVarRequestBuilder = createTokenRequestBuilder(contentType, accept, requestTokenOAuth2);
-    try {
-      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
-          localVarRequestBuilder.build(),
-          HttpResponse.BodyHandlers.ofInputStream());
-      if (memberVarResponseInterceptor != null) {
-        memberVarResponseInterceptor.accept(localVarResponse);
-      }
-      try {
-        if (localVarResponse.statusCode()/ 100 != 2) {
-          throw getApiException("createToken", localVarResponse);
-        }
-        return new ApiResponse<TokenOAuth2>(
-          localVarResponse.statusCode(),
-          localVarResponse.headers().map(),
-          memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<TokenOAuth2>() {}) // closes the InputStream
-          
-        );
-      } finally {
-      }
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    catch (InterruptedException e) {
-      Thread.currentThread().interrupt();
-      throw new ApiException(e);
-    }
-  }
-
-  private HttpRequest.Builder createTokenRequestBuilder(String contentType, String accept, RequestTokenOAuth2 requestTokenOAuth2) throws ApiException {
+    Object localVarPostBody = requestTokenOAuth2;
+    
     // verify the required parameter 'contentType' is set
     if (contentType == null) {
       throw new ApiException(400, "Missing the required parameter 'contentType' when calling createToken");
     }
+    
     // verify the required parameter 'accept' is set
     if (accept == null) {
       throw new ApiException(400, "Missing the required parameter 'accept' when calling createToken");
     }
-
-    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
-
+    
+    // create path and map variables
     String localVarPath = "/v1/oauth/tokens";
 
-    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    if (contentType != null) {
-      localVarRequestBuilder.header("Content-Type", contentType.toString());
-    }
-    if (accept != null) {
-      localVarRequestBuilder.header("Accept", accept.toString());
-    }
-    localVarRequestBuilder.header("Content-Type", "application/json");
-    localVarRequestBuilder.header("Accept", "application/json");
+    if (contentType != null)
+      localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+if (accept != null)
+      localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
 
-    try {
-      byte[] localVarPostBody = memberVarObjectMapper.writeValueAsBytes(requestTokenOAuth2);
-      localVarRequestBuilder.method("POST", HttpRequest.BodyPublishers.ofByteArray(localVarPostBody));
-    } catch (IOException e) {
-      throw new ApiException(e);
-    }
-    if (memberVarReadTimeout != null) {
-      localVarRequestBuilder.timeout(memberVarReadTimeout);
-    }
-    if (memberVarInterceptor != null) {
-      memberVarInterceptor.accept(localVarRequestBuilder);
-    }
-    return localVarRequestBuilder;
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {  };
+
+    TypeReference<TokenOAuth2> localVarReturnType = new TypeReference<TokenOAuth2>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType
+    );
   }
 }

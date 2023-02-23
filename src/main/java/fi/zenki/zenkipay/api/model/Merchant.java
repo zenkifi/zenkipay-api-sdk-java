@@ -15,8 +15,6 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,17 +24,17 @@ import fi.zenki.zenkipay.api.model.MerchantCryptoAssetsInner;
 import fi.zenki.zenkipay.api.model.MerchantEscrowConfig;
 import fi.zenki.zenkipay.api.model.MerchantIntegrationConfig;
 import fi.zenki.zenkipay.api.model.MerchantMerchantInfo;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Merchant information.
  */
-@ApiModel(description = "Merchant information.")
 @JsonPropertyOrder({
   Merchant.JSON_PROPERTY_MERCHANT_INFO,
   Merchant.JSON_PROPERTY_INTEGRATION_CONFIG,
@@ -44,7 +42,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Merchant.JSON_PROPERTY_CRYPTO_ASSETS,
   Merchant.JSON_PROPERTY_ESCROW_CONFIG
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class Merchant {
   public static final String JSON_PROPERTY_MERCHANT_INFO = "merchantInfo";
   private MerchantMerchantInfo merchantInfo;
@@ -56,15 +54,16 @@ public class Merchant {
   private Double cryptoLovePercentage;
 
   public static final String JSON_PROPERTY_CRYPTO_ASSETS = "cryptoAssets";
-  private List<MerchantCryptoAssetsInner> cryptoAssets = null;
+  private List<MerchantCryptoAssetsInner> cryptoAssets = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ESCROW_CONFIG = "escrowConfig";
   private MerchantEscrowConfig escrowConfig;
 
-  public Merchant() { 
+  public Merchant() {
   }
 
   public Merchant merchantInfo(MerchantMerchantInfo merchantInfo) {
+    
     this.merchantInfo = merchantInfo;
     return this;
   }
@@ -74,7 +73,6 @@ public class Merchant {
    * @return merchantInfo
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_MERCHANT_INFO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -91,6 +89,7 @@ public class Merchant {
 
 
   public Merchant integrationConfig(MerchantIntegrationConfig integrationConfig) {
+    
     this.integrationConfig = integrationConfig;
     return this;
   }
@@ -100,7 +99,6 @@ public class Merchant {
    * @return integrationConfig
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATION_CONFIG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -117,6 +115,7 @@ public class Merchant {
 
 
   public Merchant cryptoLovePercentage(Double cryptoLovePercentage) {
+    
     this.cryptoLovePercentage = cryptoLovePercentage;
     return this;
   }
@@ -128,7 +127,6 @@ public class Merchant {
    * @return cryptoLovePercentage
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1", required = true, value = "Discount in percentage granted by the merchant to the buyer in his purchase for activating crypto love.")
   @JsonProperty(JSON_PROPERTY_CRYPTO_LOVE_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -145,6 +143,7 @@ public class Merchant {
 
 
   public Merchant cryptoAssets(List<MerchantCryptoAssetsInner> cryptoAssets) {
+    
     this.cryptoAssets = cryptoAssets;
     return this;
   }
@@ -162,7 +161,6 @@ public class Merchant {
    * @return cryptoAssets
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Supported crypto currencies list.")
   @JsonProperty(JSON_PROPERTY_CRYPTO_ASSETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -179,6 +177,7 @@ public class Merchant {
 
 
   public Merchant escrowConfig(MerchantEscrowConfig escrowConfig) {
+    
     this.escrowConfig = escrowConfig;
     return this;
   }
@@ -188,7 +187,6 @@ public class Merchant {
    * @return escrowConfig
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ESCROW_CONFIG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -204,9 +202,6 @@ public class Merchant {
   }
 
 
-  /**
-   * Return true if this Merchant object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -250,6 +245,76 @@ public class Merchant {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `merchantInfo` to the URL query string
+    if (getMerchantInfo() != null) {
+      joiner.add(getMerchantInfo().toUrlQueryString(prefix + "merchantInfo" + suffix));
+    }
+
+    // add `integrationConfig` to the URL query string
+    if (getIntegrationConfig() != null) {
+      joiner.add(getIntegrationConfig().toUrlQueryString(prefix + "integrationConfig" + suffix));
+    }
+
+    // add `cryptoLovePercentage` to the URL query string
+    if (getCryptoLovePercentage() != null) {
+      try {
+        joiner.add(String.format("%scryptoLovePercentage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCryptoLovePercentage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cryptoAssets` to the URL query string
+    if (getCryptoAssets() != null) {
+      for (int i = 0; i < getCryptoAssets().size(); i++) {
+        if (getCryptoAssets().get(i) != null) {
+          joiner.add(getCryptoAssets().get(i).toUrlQueryString(String.format("%scryptoAssets%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `escrowConfig` to the URL query string
+    if (getEscrowConfig() != null) {
+      joiner.add(getEscrowConfig().toUrlQueryString(prefix + "escrowConfig" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

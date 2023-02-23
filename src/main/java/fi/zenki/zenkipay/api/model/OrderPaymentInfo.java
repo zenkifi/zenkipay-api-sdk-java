@@ -15,8 +15,6 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,21 +23,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.CryptoPayment;
 import fi.zenki.zenkipay.api.model.OrderPaymentInfoCryptoLove;
 import fi.zenki.zenkipay.api.model.OrderPaymentInfoExchangeRate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Payment information
  */
-@ApiModel(description = "Payment information")
 @JsonPropertyOrder({
   OrderPaymentInfo.JSON_PROPERTY_EXCHANGE_RATE,
   OrderPaymentInfo.JSON_PROPERTY_CRYPTO_LOVE,
   OrderPaymentInfo.JSON_PROPERTY_CRYPTO_PAYMENT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order_paymentInfo")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderPaymentInfo {
   public static final String JSON_PROPERTY_EXCHANGE_RATE = "exchangeRate";
   private OrderPaymentInfoExchangeRate exchangeRate;
@@ -50,10 +49,11 @@ public class OrderPaymentInfo {
   public static final String JSON_PROPERTY_CRYPTO_PAYMENT = "cryptoPayment";
   private CryptoPayment cryptoPayment;
 
-  public OrderPaymentInfo() { 
+  public OrderPaymentInfo() {
   }
 
   public OrderPaymentInfo exchangeRate(OrderPaymentInfoExchangeRate exchangeRate) {
+    
     this.exchangeRate = exchangeRate;
     return this;
   }
@@ -63,7 +63,6 @@ public class OrderPaymentInfo {
    * @return exchangeRate
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_EXCHANGE_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -80,6 +79,7 @@ public class OrderPaymentInfo {
 
 
   public OrderPaymentInfo cryptoLove(OrderPaymentInfoCryptoLove cryptoLove) {
+    
     this.cryptoLove = cryptoLove;
     return this;
   }
@@ -89,7 +89,6 @@ public class OrderPaymentInfo {
    * @return cryptoLove
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CRYPTO_LOVE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -106,6 +105,7 @@ public class OrderPaymentInfo {
 
 
   public OrderPaymentInfo cryptoPayment(CryptoPayment cryptoPayment) {
+    
     this.cryptoPayment = cryptoPayment;
     return this;
   }
@@ -115,7 +115,6 @@ public class OrderPaymentInfo {
    * @return cryptoPayment
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CRYPTO_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -131,9 +130,6 @@ public class OrderPaymentInfo {
   }
 
 
-  /**
-   * Return true if this Order_paymentInfo object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,6 +169,56 @@ public class OrderPaymentInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `exchangeRate` to the URL query string
+    if (getExchangeRate() != null) {
+      joiner.add(getExchangeRate().toUrlQueryString(prefix + "exchangeRate" + suffix));
+    }
+
+    // add `cryptoLove` to the URL query string
+    if (getCryptoLove() != null) {
+      joiner.add(getCryptoLove().toUrlQueryString(prefix + "cryptoLove" + suffix));
+    }
+
+    // add `cryptoPayment` to the URL query string
+    if (getCryptoPayment() != null) {
+      joiner.add(getCryptoPayment().toUrlQueryString(prefix + "cryptoPayment" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

@@ -19,13 +19,14 @@ import fi.zenki.zenkipay.api.model.Refund;
 import fi.zenki.zenkipay.api.model.RequestRefund;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for RefundsApi
@@ -35,7 +36,6 @@ public class RefundsApiTest {
 
     private final RefundsApi api = new RefundsApi();
 
-    
     /**
      * Request refunds for an order
      *
@@ -52,12 +52,10 @@ public class RefundsApiTest {
         String accept = null;
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
-        Refund response = 
-        api.getRefundOrder(zenkiOrderId, zenkiRefundId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
-        
+        Refund response = api.getRefundOrder(zenkiOrderId, zenkiRefundId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
+
         // TODO: test validations
     }
-    
     /**
      * Register of refunds for an order
      *
@@ -74,10 +72,8 @@ public class RefundsApiTest {
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
         RequestRefund requestRefund = null;
-        Refund response = 
-        api.registerRefundOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, requestRefund);
-        
+        Refund response = api.registerRefundOrder(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage, requestRefund);
+
         // TODO: test validations
     }
-    
 }

@@ -15,28 +15,27 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Summary of the amount paid in crypto currency by the buyer.
  */
-@ApiModel(description = "Summary of the amount paid in crypto currency by the buyer.")
 @JsonPropertyOrder({
   MerchantEscrowConfig.JSON_PROPERTY_ORDER_TYPE,
   MerchantEscrowConfig.JSON_PROPERTY_SHOPPER_NOTIFICATION,
   MerchantEscrowConfig.JSON_PROPERTY_TIME_WAIT_TO_APPROVAL
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Merchant_escrowConfig")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class MerchantEscrowConfig {
   /**
    * Indicates the model for the product delivery or service delivery.  Possible values: * WITH_CARRIER    - If a courier is going to be used for the shipment and delivery of the product or service. * WITHOUT_CARRIER - If a courier is not going to be used for the shipment and delivery of the product or service. * MIXED           - If a courier is going to be used to send part of the products or services and another part is delivered without using a courier.
@@ -84,10 +83,11 @@ public class MerchantEscrowConfig {
   public static final String JSON_PROPERTY_TIME_WAIT_TO_APPROVAL = "timeWaitToApproval";
   private Long timeWaitToApproval;
 
-  public MerchantEscrowConfig() { 
+  public MerchantEscrowConfig() {
   }
 
   public MerchantEscrowConfig orderType(OrderTypeEnum orderType) {
+    
     this.orderType = orderType;
     return this;
   }
@@ -97,7 +97,6 @@ public class MerchantEscrowConfig {
    * @return orderType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MIXED", value = "Indicates the model for the product delivery or service delivery.  Possible values: * WITH_CARRIER    - If a courier is going to be used for the shipment and delivery of the product or service. * WITHOUT_CARRIER - If a courier is not going to be used for the shipment and delivery of the product or service. * MIXED           - If a courier is going to be used to send part of the products or services and another part is delivered without using a courier.")
   @JsonProperty(JSON_PROPERTY_ORDER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -114,6 +113,7 @@ public class MerchantEscrowConfig {
 
 
   public MerchantEscrowConfig shopperNotification(Long shopperNotification) {
+    
     this.shopperNotification = shopperNotification;
     return this;
   }
@@ -124,7 +124,6 @@ public class MerchantEscrowConfig {
    * @return shopperNotification
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6", value = "Number of hours to wait for the merchant to notify Zenki that they have delivered the services to the shopper. Time is expressed in hours.")
   @JsonProperty(JSON_PROPERTY_SHOPPER_NOTIFICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -141,6 +140,7 @@ public class MerchantEscrowConfig {
 
 
   public MerchantEscrowConfig timeWaitToApproval(Long timeWaitToApproval) {
+    
     this.timeWaitToApproval = timeWaitToApproval;
     return this;
   }
@@ -151,7 +151,6 @@ public class MerchantEscrowConfig {
    * @return timeWaitToApproval
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "24", value = "Number of hours that Zenki will wait for confirmation from the buyer before approving the payment and releasing the funds to the merchant. Time is expressed in hours.")
   @JsonProperty(JSON_PROPERTY_TIME_WAIT_TO_APPROVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -167,9 +166,6 @@ public class MerchantEscrowConfig {
   }
 
 
-  /**
-   * Return true if this Merchant_escrowConfig object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -209,6 +205,71 @@ public class MerchantEscrowConfig {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `orderType` to the URL query string
+    if (getOrderType() != null) {
+      try {
+        joiner.add(String.format("%sorderType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrderType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `shopperNotification` to the URL query string
+    if (getShopperNotification() != null) {
+      try {
+        joiner.add(String.format("%sshopperNotification%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShopperNotification()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `timeWaitToApproval` to the URL query string
+    if (getTimeWaitToApproval() != null) {
+      try {
+        joiner.add(String.format("%stimeWaitToApproval%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimeWaitToApproval()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

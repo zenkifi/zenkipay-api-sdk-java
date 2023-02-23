@@ -15,22 +15,20 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * General information of the merchant.
  */
-@ApiModel(description = "General information of the merchant.")
 @JsonPropertyOrder({
   MerchantMerchantInfo.JSON_PROPERTY_COMMERCIAL_NAME,
   MerchantMerchantInfo.JSON_PROPERTY_LEGAL_NAME,
@@ -38,7 +36,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MerchantMerchantInfo.JSON_PROPERTY_KYC_STATUS,
   MerchantMerchantInfo.JSON_PROPERTY_INTEGRATION_STATUS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Merchant_merchantInfo")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class MerchantMerchantInfo {
   public static final String JSON_PROPERTY_COMMERCIAL_NAME = "commercialName";
   private String commercialName;
@@ -164,10 +163,11 @@ public class MerchantMerchantInfo {
   public static final String JSON_PROPERTY_INTEGRATION_STATUS = "integrationStatus";
   private IntegrationStatusEnum integrationStatus;
 
-  public MerchantMerchantInfo() { 
+  public MerchantMerchantInfo() {
   }
 
   public MerchantMerchantInfo commercialName(String commercialName) {
+    
     this.commercialName = commercialName;
     return this;
   }
@@ -177,7 +177,6 @@ public class MerchantMerchantInfo {
    * @return commercialName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Juanito shoe stores", required = true, value = "Commercial name of the merchant that you registered when you created your Zenki account.")
   @JsonProperty(JSON_PROPERTY_COMMERCIAL_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -194,6 +193,7 @@ public class MerchantMerchantInfo {
 
 
   public MerchantMerchantInfo legalName(String legalName) {
+    
     this.legalName = legalName;
     return this;
   }
@@ -203,7 +203,6 @@ public class MerchantMerchantInfo {
    * @return legalName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Grupo Juanito y Asociados S.A. de C.V.", value = "Merchant legal name that you register during the Zenki account activation process.")
   @JsonProperty(JSON_PROPERTY_LEGAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -220,6 +219,7 @@ public class MerchantMerchantInfo {
 
 
   public MerchantMerchantInfo accountType(AccountTypeEnum accountType) {
+    
     this.accountType = accountType;
     return this;
   }
@@ -229,7 +229,6 @@ public class MerchantMerchantInfo {
    * @return accountType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ENTITY", required = true, value = "Merchant account type.  Possible values: * PERSONAL - Natural person with commercial activity. * ENTITY - Company with commercial activity")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -246,6 +245,7 @@ public class MerchantMerchantInfo {
 
 
   public MerchantMerchantInfo kycStatus(KycStatusEnum kycStatus) {
+    
     this.kycStatus = kycStatus;
     return this;
   }
@@ -255,7 +255,6 @@ public class MerchantMerchantInfo {
    * @return kycStatus
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "APPROVED", required = true, value = "State of the documentary process in which the merchant is located.  Possible values: * PENDING      - Indicates that you still need to send information or documents to complete your KYC process. * APPROVED     - The documentary registration process has been completed and the Zenki staff has authorized the business to operate. * REQUEST_INFO - Zenki Staff requested more information or change in trade documents. * REJECTED     - Zenki Staff definitively rejected the merchant request.")
   @JsonProperty(JSON_PROPERTY_KYC_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -272,6 +271,7 @@ public class MerchantMerchantInfo {
 
 
   public MerchantMerchantInfo integrationStatus(IntegrationStatusEnum integrationStatus) {
+    
     this.integrationStatus = integrationStatus;
     return this;
   }
@@ -281,7 +281,6 @@ public class MerchantMerchantInfo {
    * @return integrationStatus
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "COMPLETED", required = true, value = "Status of the integration process in merchant is located.  Possible values: * PENDING   - It indicates that the merchant has not yet concluded its technical integration process and is not yet in a productive environment. * COMPLETED - Indicates that the merchant has completed its technical integration process and is already in production or live.")
   @JsonProperty(JSON_PROPERTY_INTEGRATION_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -297,9 +296,6 @@ public class MerchantMerchantInfo {
   }
 
 
-  /**
-   * Return true if this Merchant_merchantInfo object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -343,6 +339,91 @@ public class MerchantMerchantInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `commercialName` to the URL query string
+    if (getCommercialName() != null) {
+      try {
+        joiner.add(String.format("%scommercialName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCommercialName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `legalName` to the URL query string
+    if (getLegalName() != null) {
+      try {
+        joiner.add(String.format("%slegalName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLegalName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `accountType` to the URL query string
+    if (getAccountType() != null) {
+      try {
+        joiner.add(String.format("%saccountType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccountType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `kycStatus` to the URL query string
+    if (getKycStatus() != null) {
+      try {
+        joiner.add(String.format("%skycStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKycStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `integrationStatus` to the URL query string
+    if (getIntegrationStatus() != null) {
+      try {
+        joiner.add(String.format("%sintegrationStatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIntegrationStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

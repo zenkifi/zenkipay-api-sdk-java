@@ -15,17 +15,16 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * ErrorResponseValidationErrorsInner
@@ -35,7 +34,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   ErrorResponseValidationErrorsInner.JSON_PROPERTY_FIELD,
   ErrorResponseValidationErrorsInner.JSON_PROPERTY_MESSAGE
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("ErrorResponse_validationErrors_inner")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class ErrorResponseValidationErrorsInner {
   public static final String JSON_PROPERTY_OBJECT_NAME = "objectName";
   private String objectName;
@@ -46,10 +46,11 @@ public class ErrorResponseValidationErrorsInner {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-  public ErrorResponseValidationErrorsInner() { 
+  public ErrorResponseValidationErrorsInner() {
   }
 
   public ErrorResponseValidationErrorsInner objectName(String objectName) {
+    
     this.objectName = objectName;
     return this;
   }
@@ -59,7 +60,6 @@ public class ErrorResponseValidationErrorsInner {
    * @return objectName
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "createOrderTracking", required = true, value = "Object name in the data structure where the error originates.")
   @JsonProperty(JSON_PROPERTY_OBJECT_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -76,6 +76,7 @@ public class ErrorResponseValidationErrorsInner {
 
 
   public ErrorResponseValidationErrorsInner field(String field) {
+    
     this.field = field;
     return this;
   }
@@ -85,7 +86,6 @@ public class ErrorResponseValidationErrorsInner {
    * @return field
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "trackingId", required = true, value = "Object field where it presents validation errors.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -102,6 +102,7 @@ public class ErrorResponseValidationErrorsInner {
 
 
   public ErrorResponseValidationErrorsInner message(String message) {
+    
     this.message = message;
     return this;
   }
@@ -111,7 +112,6 @@ public class ErrorResponseValidationErrorsInner {
    * @return message
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Tracking number is required.", required = true, value = "Error description caused by not passing some information validation.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -127,9 +127,6 @@ public class ErrorResponseValidationErrorsInner {
   }
 
 
-  /**
-   * Return true if this ErrorResponse_validationErrors_inner object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -169,6 +166,71 @@ public class ErrorResponseValidationErrorsInner {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `objectName` to the URL query string
+    if (getObjectName() != null) {
+      try {
+        joiner.add(String.format("%sobjectName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getObjectName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `field` to the URL query string
+    if (getField() != null) {
+      try {
+        joiner.add(String.format("%sfield%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getField()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `message` to the URL query string
+    if (getMessage() != null) {
+      try {
+        joiner.add(String.format("%smessage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMessage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

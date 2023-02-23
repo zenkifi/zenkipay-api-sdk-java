@@ -15,15 +15,11 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -31,12 +27,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Information about a product or service.
  */
-@ApiModel(description = "Information about a product or service.")
 @JsonPropertyOrder({
   Item.JSON_PROPERTY_EXTERNAL_ID,
   Item.JSON_PROPERTY_QUANTITY,
@@ -47,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Item.JSON_PROPERTY_THUMBNAIL_URL,
   Item.JSON_PROPERTY_METADATA
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class Item {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
   private String externalId;
@@ -108,10 +106,11 @@ public class Item {
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private JsonNullable<Map<String, String>> metadata = JsonNullable.<Map<String, String>>undefined();
 
-  public Item() { 
+  public Item() {
   }
 
   public Item externalId(String externalId) {
+    
     this.externalId = externalId;
     return this;
   }
@@ -121,7 +120,6 @@ public class Item {
    * @return externalId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "e40dbc7450f6", value = "Unique identifier of the product or service assigned by the merchant.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -138,6 +136,7 @@ public class Item {
 
 
   public Item quantity(Long quantity) {
+    
     this.quantity = quantity;
     return this;
   }
@@ -148,7 +147,6 @@ public class Item {
    * @return quantity
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2", required = true, value = "Total number of products or services of the order of the same type.")
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -165,6 +163,7 @@ public class Item {
 
 
   public Item unitPrice(Double unitPrice) {
+    
     this.unitPrice = unitPrice;
     return this;
   }
@@ -175,7 +174,6 @@ public class Item {
    * @return unitPrice
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "100", required = true, value = "Unit price of the product or service.")
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -192,6 +190,7 @@ public class Item {
 
 
   public Item name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -201,7 +200,6 @@ public class Item {
    * @return name
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Libreta", required = true, value = "Short name of the product or service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -219,6 +217,7 @@ public class Item {
 
   public Item description(String description) {
     this.description = JsonNullable.<String>of(description);
+    
     return this;
   }
 
@@ -227,7 +226,6 @@ public class Item {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Striped notebook", value = "Description of the product or service.")
   @JsonIgnore
 
   public String getDescription() {
@@ -252,6 +250,7 @@ public class Item {
 
 
   public Item type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -261,7 +260,6 @@ public class Item {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WITH_CARRIER", value = "Indicates the model for the product delivery or service delivery.  Possible values: * WITH_CARRIER    - If a courier is going to be used for the shipment and delivery of the product or service. * WITHOUT_CARRIER - If a courier is not going to be used for the shipment and delivery of the product or service.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -279,6 +277,7 @@ public class Item {
 
   public Item thumbnailUrl(String thumbnailUrl) {
     this.thumbnailUrl = JsonNullable.<String>of(thumbnailUrl);
+    
     return this;
   }
 
@@ -287,7 +286,6 @@ public class Item {
    * @return thumbnailUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://cdn.tshirts.boutique/wp-content/uploads/2022/07/12213723/12100-105.jpg", value = "Product image URL (thumbnail).")
   @JsonIgnore
 
   public String getThumbnailUrl() {
@@ -313,12 +311,13 @@ public class Item {
 
   public Item metadata(Map<String, String> metadata) {
     this.metadata = JsonNullable.<Map<String, String>>of(metadata);
+    
     return this;
   }
 
   public Item putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null || !this.metadata.isPresent()) {
-      this.metadata = JsonNullable.<Map<String, String>>of(new HashMap<>());
+      this.metadata = JsonNullable.<Map<String, String>>of(null);
     }
     try {
       this.metadata.get().put(key, metadataItem);
@@ -333,7 +332,6 @@ public class Item {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"size\":\"L\",\"color\":\"red\"}", value = "Complementary information of the product or service that is required to be reported or kept in the Zenkipay system.")
   @JsonIgnore
 
   public Map<String, String> getMetadata() {
@@ -357,9 +355,6 @@ public class Item {
   }
 
 
-  /**
-   * Return true if this Item object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -420,6 +415,125 @@ public class Item {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `externalId` to the URL query string
+    if (getExternalId() != null) {
+      try {
+        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `quantity` to the URL query string
+    if (getQuantity() != null) {
+      try {
+        joiner.add(String.format("%squantity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQuantity()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `unitPrice` to the URL query string
+    if (getUnitPrice() != null) {
+      try {
+        joiner.add(String.format("%sunitPrice%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUnitPrice()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      try {
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `thumbnailUrl` to the URL query string
+    if (getThumbnailUrl() != null) {
+      try {
+        joiner.add(String.format("%sthumbnailUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getThumbnailUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `metadata` to the URL query string
+    if (getMetadata() != null) {
+      for (String _key : getMetadata().keySet()) {
+        try {
+          joiner.add(String.format("%smetadata%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetadata().get(_key), URLEncoder.encode(String.valueOf(getMetadata().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

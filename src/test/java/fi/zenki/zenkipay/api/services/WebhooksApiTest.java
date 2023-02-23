@@ -17,13 +17,14 @@ import fi.zenki.zenkipay.api.ApiException;
 import fi.zenki.zenkipay.api.model.Webhook;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for WebhooksApi
@@ -33,7 +34,6 @@ public class WebhooksApiTest {
 
     private final WebhooksApi api = new WebhooksApi();
 
-    
     /**
      * Event notifications for merchant
      *
@@ -49,10 +49,8 @@ public class WebhooksApiTest {
         String svixSignature = null;
         String contentType = null;
         Webhook webhook = null;
-        
         api.sendEvent(svixId, svixTimestamp, svixSignature, contentType, webhook);
-        
+
         // TODO: test validations
     }
-    
 }

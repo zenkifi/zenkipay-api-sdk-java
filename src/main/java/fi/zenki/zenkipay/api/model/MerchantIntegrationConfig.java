@@ -15,37 +15,37 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.MerchantIntegrationConfigPluginsInner;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Merchant integrations settings.
  */
-@ApiModel(description = "Merchant integrations settings.")
 @JsonPropertyOrder({
   MerchantIntegrationConfig.JSON_PROPERTY_PLUGINS
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Merchant_integrationConfig")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class MerchantIntegrationConfig {
   public static final String JSON_PROPERTY_PLUGINS = "plugins";
   private List<MerchantIntegrationConfigPluginsInner> plugins = new ArrayList<>();
 
-  public MerchantIntegrationConfig() { 
+  public MerchantIntegrationConfig() {
   }
 
   public MerchantIntegrationConfig plugins(List<MerchantIntegrationConfigPluginsInner> plugins) {
+    
     this.plugins = plugins;
     return this;
   }
@@ -60,7 +60,6 @@ public class MerchantIntegrationConfig {
    * @return plugins
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "Configuration of each active plugin of the merchant.")
   @JsonProperty(JSON_PROPERTY_PLUGINS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -76,9 +75,6 @@ public class MerchantIntegrationConfig {
   }
 
 
-  /**
-   * Return true if this Merchant_integrationConfig object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,6 +110,51 @@ public class MerchantIntegrationConfig {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `plugins` to the URL query string
+    if (getPlugins() != null) {
+      for (int i = 0; i < getPlugins().size(); i++) {
+        if (getPlugins().get(i) != null) {
+          joiner.add(getPlugins().get(i).toUrlQueryString(String.format("%splugins%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

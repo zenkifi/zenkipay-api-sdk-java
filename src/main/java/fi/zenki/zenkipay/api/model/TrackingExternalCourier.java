@@ -15,26 +15,24 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Courier details used for the shipment.
  */
-@ApiModel(description = "Courier details used for the shipment.")
 @JsonPropertyOrder({
   TrackingExternalCourier.JSON_PROPERTY_KEY,
   TrackingExternalCourier.JSON_PROPERTY_COUNTRY_CODE_ISO2,
@@ -43,7 +41,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   TrackingExternalCourier.JSON_PROPERTY_NAME_ZH_CN,
   TrackingExternalCourier.JSON_PROPERTY_NAME_ZH_HK
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Tracking_externalCourier")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class TrackingExternalCourier {
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
@@ -63,10 +62,11 @@ public class TrackingExternalCourier {
   public static final String JSON_PROPERTY_NAME_ZH_HK = "nameZhHk";
   private JsonNullable<String> nameZhHk = JsonNullable.<String>undefined();
 
-  public TrackingExternalCourier() { 
+  public TrackingExternalCourier() {
   }
 
   public TrackingExternalCourier key(String key) {
+    
     this.key = key;
     return this;
   }
@@ -76,7 +76,6 @@ public class TrackingExternalCourier {
    * @return key
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "100003", required = true, value = "Unique messaging identifier provided by Zenkipay:  Example of some couriers:   * 190135  139Express  http://www.139express.com/   * 190524  1688        https://www.1688.com/   * 190659  17EXP       https://www.17-exp.com/   * 190349  1TONG       http://www.1tongexpress.com/  To know the complete list of couriers see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-mensajerias-soportadas")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -93,6 +92,7 @@ public class TrackingExternalCourier {
 
 
   public TrackingExternalCourier countryCodeIso2(String countryCodeIso2) {
+    
     this.countryCodeIso2 = countryCodeIso2;
     return this;
   }
@@ -102,7 +102,6 @@ public class TrackingExternalCourier {
    * @return countryCodeIso2
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "MX", required = true, value = "Unique country identifier, the definition of the ISO_3166-1 standard is used with 2 characters, see: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 or https://www.iso.org/iso-3166-country-codes.html")
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE_ISO2)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -120,6 +119,7 @@ public class TrackingExternalCourier {
 
   public TrackingExternalCourier url(String url) {
     this.url = JsonNullable.<String>of(url);
+    
     return this;
   }
 
@@ -128,7 +128,6 @@ public class TrackingExternalCourier {
    * @return url
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "http://www.fedex.com/", value = "Courier website.  To know the complete list of couriers see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-mensajerias-soportadas")
   @JsonIgnore
 
   public String getUrl() {
@@ -154,6 +153,7 @@ public class TrackingExternalCourier {
 
   public TrackingExternalCourier name(String name) {
     this.name = JsonNullable.<String>of(name);
+    
     return this;
   }
 
@@ -162,7 +162,6 @@ public class TrackingExternalCourier {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Fedex", value = "Courier name.  To know the complete list of couriers see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-mensajerias-soportadas")
   @JsonIgnore
 
   public String getName() {
@@ -188,6 +187,7 @@ public class TrackingExternalCourier {
 
   public TrackingExternalCourier nameZhCn(String nameZhCn) {
     this.nameZhCn = JsonNullable.<String>of(nameZhCn);
+    
     return this;
   }
 
@@ -196,7 +196,6 @@ public class TrackingExternalCourier {
    * @return nameZhCn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Fedex", value = "Courier name.  To know the complete list of couriers see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-mensajerias-soportadas")
   @JsonIgnore
 
   public String getNameZhCn() {
@@ -222,6 +221,7 @@ public class TrackingExternalCourier {
 
   public TrackingExternalCourier nameZhHk(String nameZhHk) {
     this.nameZhHk = JsonNullable.<String>of(nameZhHk);
+    
     return this;
   }
 
@@ -230,7 +230,6 @@ public class TrackingExternalCourier {
    * @return nameZhHk
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Fedex", value = "Courier name.        To know the complete list of couriers see: https://developer.zenki.fi/global-v1/docs/zenkipay-recursos-catalogos-mensajerias-soportadas")
   @JsonIgnore
 
   public String getNameZhHk() {
@@ -254,9 +253,6 @@ public class TrackingExternalCourier {
   }
 
 
-  /**
-   * Return true if this Tracking_externalCourier object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -313,6 +309,101 @@ public class TrackingExternalCourier {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `key` to the URL query string
+    if (getKey() != null) {
+      try {
+        joiner.add(String.format("%skey%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getKey()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `countryCodeIso2` to the URL query string
+    if (getCountryCodeIso2() != null) {
+      try {
+        joiner.add(String.format("%scountryCodeIso2%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountryCodeIso2()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `url` to the URL query string
+    if (getUrl() != null) {
+      try {
+        joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `nameZhCn` to the URL query string
+    if (getNameZhCn() != null) {
+      try {
+        joiner.add(String.format("%snameZhCn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNameZhCn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `nameZhHk` to the URL query string
+    if (getNameZhHk() != null) {
+      try {
+        joiner.add(String.format("%snameZhHk%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNameZhHk()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

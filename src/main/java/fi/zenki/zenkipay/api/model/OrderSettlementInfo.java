@@ -15,35 +15,35 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import fi.zenki.zenkipay.api.model.OrderSettlementInfoCryptoSettlement;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Order information for settlement to merchant
  */
-@ApiModel(description = "Order information for settlement to merchant")
 @JsonPropertyOrder({
   OrderSettlementInfo.JSON_PROPERTY_CRYPTO_SETTLEMENT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order_settlementInfo")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderSettlementInfo {
   public static final String JSON_PROPERTY_CRYPTO_SETTLEMENT = "cryptoSettlement";
   private OrderSettlementInfoCryptoSettlement cryptoSettlement;
 
-  public OrderSettlementInfo() { 
+  public OrderSettlementInfo() {
   }
 
   public OrderSettlementInfo cryptoSettlement(OrderSettlementInfoCryptoSettlement cryptoSettlement) {
+    
     this.cryptoSettlement = cryptoSettlement;
     return this;
   }
@@ -53,7 +53,6 @@ public class OrderSettlementInfo {
    * @return cryptoSettlement
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CRYPTO_SETTLEMENT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -69,9 +68,6 @@ public class OrderSettlementInfo {
   }
 
 
-  /**
-   * Return true if this Order_settlementInfo object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,6 +103,46 @@ public class OrderSettlementInfo {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `cryptoSettlement` to the URL query string
+    if (getCryptoSettlement() != null) {
+      joiner.add(getCryptoSettlement().toUrlQueryString(prefix + "cryptoSettlement" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

@@ -22,8 +22,6 @@ import fi.zenki.zenkipay.api.model.MerchantCryptoAssetsInner;
 import fi.zenki.zenkipay.api.model.MerchantEscrowConfig;
 import fi.zenki.zenkipay.api.model.MerchantIntegrationConfig;
 import fi.zenki.zenkipay.api.model.MerchantMerchantInfo;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;

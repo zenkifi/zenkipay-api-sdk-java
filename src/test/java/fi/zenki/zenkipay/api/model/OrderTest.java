@@ -26,8 +26,6 @@ import fi.zenki.zenkipay.api.model.OrderLinks;
 import fi.zenki.zenkipay.api.model.OrderPaymentInfo;
 import fi.zenki.zenkipay.api.model.OrderSettlementInfo;
 import fi.zenki.zenkipay.api.model.Shopper;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

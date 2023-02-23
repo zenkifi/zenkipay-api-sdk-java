@@ -18,13 +18,14 @@ import fi.zenki.zenkipay.api.model.ErrorResponse;
 import fi.zenki.zenkipay.api.model.Order;
 import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Assert;
 
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 
 /**
  * API tests for EscrowApi
@@ -34,7 +35,6 @@ public class EscrowApiTest {
 
     private final EscrowApi api = new EscrowApi();
 
-    
     /**
      * Escrow update
      *
@@ -50,10 +50,8 @@ public class EscrowApiTest {
         String accept = null;
         String X_ZENKI_PLUGIN_ID = null;
         String acceptLanguage = null;
-        Order response = 
-        api.updateEscrow(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
-        
+        Order response = api.updateEscrow(zenkiOrderId, contentType, accept, X_ZENKI_PLUGIN_ID, acceptLanguage);
+
         // TODO: test validations
     }
-    
 }

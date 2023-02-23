@@ -15,32 +15,31 @@ package fi.zenki.zenkipay.api.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * Claim process detail, when a payment is made and Zenkipay cannot identify it and associate it with the payment order.
  */
-@ApiModel(description = "Claim process detail, when a payment is made and Zenkipay cannot identify it and associate it with the payment order.")
 @JsonPropertyOrder({
   OrderClaim.JSON_PROPERTY_REASON,
   OrderClaim.JSON_PROPERTY_STATUS,
   OrderClaim.JSON_PROPERTY_CREATED_AT
 })
-@javax.annotation.processing.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-22T18:12:34.769213250Z[Etc/UTC]")
+@JsonTypeName("Order_claim")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:51:51.121336960Z[Etc/UTC]")
 public class OrderClaim {
   public static final String JSON_PROPERTY_REASON = "reason";
   private JsonNullable<String> reason = JsonNullable.<String>undefined();
@@ -90,11 +89,12 @@ public class OrderClaim {
   public static final String JSON_PROPERTY_CREATED_AT = "createdAt";
   private Long createdAt;
 
-  public OrderClaim() { 
+  public OrderClaim() {
   }
 
   public OrderClaim reason(String reason) {
     this.reason = JsonNullable.<String>of(reason);
+    
     return this;
   }
 
@@ -103,7 +103,6 @@ public class OrderClaim {
    * @return reason
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Out of inventory.", value = "Reason for filing the claim.")
   @JsonIgnore
 
   public String getReason() {
@@ -128,6 +127,7 @@ public class OrderClaim {
 
 
   public OrderClaim status(StatusEnum status) {
+    
     this.status = status;
     return this;
   }
@@ -137,7 +137,6 @@ public class OrderClaim {
    * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "OPEN", required = true, value = "Claim current status.      Possible values: * OPEN     - The claim process has started. * REFUND   - The claim process has been closed and a partial or full refund of the full amount of the order has been made. * RESOLVED - The claim process has been closed without making any reimbursement movement to the buyer, only the payment transaction is associated with the indicated order. * REJECTED - When the claim does not apply, because it tries to associate a payment that does not match the transaction data.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -154,6 +153,7 @@ public class OrderClaim {
 
 
   public OrderClaim createdAt(Long createdAt) {
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -164,7 +164,6 @@ public class OrderClaim {
    * @return createdAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1667353629", required = true, value = "Date and time the clearing started, in milliseconds and UTC format.      The Unix epoch (or Unix time or POSIX time or Unix timestamp) is the number of seconds elapsed since January 1, 1970 (midnight UTC/GMT), not counting leap seconds (in ISO 8601: 1970-01-01T00: 00:00Z)")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -180,9 +179,6 @@ public class OrderClaim {
   }
 
 
-  /**
-   * Return true if this Order_claim object is equal to o.
-   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -233,6 +229,71 @@ public class OrderClaim {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `reason` to the URL query string
+    if (getReason() != null) {
+      try {
+        joiner.add(String.format("%sreason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReason()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `status` to the URL query string
+    if (getStatus() != null) {
+      try {
+        joiner.add(String.format("%sstatus%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStatus()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdAt` to the URL query string
+    if (getCreatedAt() != null) {
+      try {
+        joiner.add(String.format("%screatedAt%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedAt()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }
