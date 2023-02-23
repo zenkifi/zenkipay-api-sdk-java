@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   OrderLinks.JSON_PROPERTY_REFUND
 })
 @JsonTypeName("Order__links")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
 public class OrderLinks {
   public static final String JSON_PROPERTY_REFUND = "refund";
   private OrderLinksRefund refund;

@@ -34,7 +34,7 @@ import java.util.StringJoiner;
   OrderSettlementInfo.JSON_PROPERTY_CRYPTO_SETTLEMENT
 })
 @JsonTypeName("Order_settlementInfo")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
 public class OrderSettlementInfo {
   public static final String JSON_PROPERTY_CRYPTO_SETTLEMENT = "cryptoSettlement";
   private OrderSettlementInfoCryptoSettlement cryptoSettlement;

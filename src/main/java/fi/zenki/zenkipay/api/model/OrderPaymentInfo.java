@@ -38,7 +38,7 @@ import java.util.StringJoiner;
   OrderPaymentInfo.JSON_PROPERTY_CRYPTO_PAYMENT
 })
 @JsonTypeName("Order_paymentInfo")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
 public class OrderPaymentInfo {
   public static final String JSON_PROPERTY_EXCHANGE_RATE = "exchangeRate";
   private OrderPaymentInfoExchangeRate exchangeRate;

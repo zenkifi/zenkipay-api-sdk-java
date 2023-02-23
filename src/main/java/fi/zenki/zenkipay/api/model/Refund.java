@@ -39,7 +39,7 @@ import java.util.StringJoiner;
   Refund.JSON_PROPERTY_STATUS,
   Refund.JSON_PROPERTY_PLACED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T15:55:44.125730643Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:11:11.907534644Z[Etc/UTC]")
 public class Refund {
   public static final String JSON_PROPERTY_ZENKI_REFUND_ID = "zenkiRefundId";
   private String zenkiRefundId;
