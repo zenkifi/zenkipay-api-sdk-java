@@ -65,7 +65,7 @@ import java.util.StringJoiner;
   Order.JSON_PROPERTY_LINKS,
   Order.JSON_PROPERTY_PAYMENT_SIGNATURE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
 public class Order {
   public static final String JSON_PROPERTY_VERSION = "version";
   private String version;

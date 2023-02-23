@@ -37,7 +37,7 @@ import java.util.StringJoiner;
   OrderPaymentInfoExchangeRate.JSON_PROPERTY_TIMESTAMP
 })
 @JsonTypeName("Order_paymentInfo_exchangeRate")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
 public class OrderPaymentInfoExchangeRate {
   public static final String JSON_PROPERTY_FROM = "from";
   private String from;

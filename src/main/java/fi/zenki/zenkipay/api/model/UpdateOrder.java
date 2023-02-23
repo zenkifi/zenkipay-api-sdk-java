@@ -42,7 +42,7 @@ import java.util.StringJoiner;
   UpdateOrder.JSON_PROPERTY_SHOPPER,
   UpdateOrder.JSON_PROPERTY_METADATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
 public class UpdateOrder {
   public static final String JSON_PROPERTY_ORDER_ID = "orderId";
   private JsonNullable<String> orderId = JsonNullable.<String>undefined();

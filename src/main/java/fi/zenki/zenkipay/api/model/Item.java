@@ -45,7 +45,7 @@ import java.util.StringJoiner;
   Item.JSON_PROPERTY_THUMBNAIL_URL,
   Item.JSON_PROPERTY_METADATA
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
 public class Item {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
   private String externalId;

@@ -35,7 +35,7 @@ import java.util.StringJoiner;
   ErrorResponseValidationErrorsInner.JSON_PROPERTY_MESSAGE
 })
 @JsonTypeName("ErrorResponse_validationErrors_inner")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:19:43.293151248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
 public class ErrorResponseValidationErrorsInner {
   public static final String JSON_PROPERTY_OBJECT_NAME = "objectName";
   private String objectName;
