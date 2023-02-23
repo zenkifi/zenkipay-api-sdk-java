@@ -33,7 +33,7 @@ import java.util.StringJoiner;
   UpdateOrderShopper.JSON_PROPERTY_ID
 })
 @JsonTypeName("UpdateOrder_shopper")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
 public class UpdateOrderShopper {
   public static final String JSON_PROPERTY_ID = "id";
   private String id;

@@ -37,7 +37,7 @@ import java.util.StringJoiner;
   MerchantMerchantInfo.JSON_PROPERTY_INTEGRATION_STATUS
 })
 @JsonTypeName("Merchant_merchantInfo")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:28:05.340675397Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-02-23T23:32:36.925241933Z[Etc/UTC]")
 public class MerchantMerchantInfo {
   public static final String JSON_PROPERTY_COMMERCIAL_NAME = "commercialName";
   private String commercialName;
